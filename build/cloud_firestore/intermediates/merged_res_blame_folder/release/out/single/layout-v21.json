@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\Users\\Intel\\FlutterDev\\group_chatapp_flutter_firebase\\build\\cloud_firestore\\intermediates\\merged_res\\release\\layout-v21\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\Intel\\.gradle\\caches\\transforms-3\\d4be00ef9362846b7e5ef168486a55d7\\transformed\\core-1.6.0\\res\\layout-v21\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "C:\\Users\\Intel\\FlutterDev\\group_chatapp_flutter_firebase\\build\\cloud_firestore\\intermediates\\merged_res\\release\\layout-v21\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\Intel\\.gradle\\caches\\transforms-3\\d4be00ef9362846b7e5ef168486a55d7\\transformed\\core-1.6.0\\res\\layout-v21\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "C:\\Users\\Intel\\FlutterDev\\group_chatapp_flutter_firebase\\build\\cloud_firestore\\intermediates\\merged_res\\release\\layout-v21\\notification_template_custom_big.xml",
+        "source": "C:\\Users\\Intel\\.gradle\\caches\\transforms-3\\d4be00ef9362846b7e5ef168486a55d7\\transformed\\core-1.6.0\\res\\layout-v21\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "C:\\Users\\Intel\\FlutterDev\\group_chatapp_flutter_firebase\\build\\cloud_firestore\\intermediates\\merged_res\\release\\layout-v21\\notification_action.xml",
+        "source": "C:\\Users\\Intel\\.gradle\\caches\\transforms-3\\d4be00ef9362846b7e5ef168486a55d7\\transformed\\core-1.6.0\\res\\layout-v21\\notification_action.xml"
+    }
+]
