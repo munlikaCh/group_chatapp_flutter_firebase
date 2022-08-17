@@ -32,34 +32,58 @@ class _ForgetpassPageState extends State<ForgetpassPage> {
           : SingleChildScrollView(
               child: Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 80),
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                 child: Form(
                     key: formKey,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        const Text(
-                          "Groupie",
-                          style: TextStyle(
-                              fontSize: 40, fontWeight: FontWeight.bold),
-                        ),
-                        const SizedBox(height: 10),
-                        const Text(
-                            "Create your account now to chat and explore",
+                        Container(
+                          margin: const EdgeInsets.only(
+                              top: 120.0, left: 0.0, right: 0.0),
+                          alignment: Alignment.topLeft,
+                          padding: const EdgeInsets.all(10),
+                          child: const Text(
+                            "Reset Password",
                             style: TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.w400)),
-                        Image.asset("assets/register.png"),
-
+                                fontSize: 40,
+                                fontFamily: 'UbuntuMedium',
+                                color: Color(0xFFE7A599),
+                                decoration: TextDecoration.none,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        // const SizedBox(height: 5),
+                        Container(
+                          alignment: Alignment.topLeft,
+                          padding: const EdgeInsets.all(10),
+                          child: const Text("Please enter your email:",
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  fontFamily: 'UbuntuRegular',
+                                  fontWeight: FontWeight.w400,
+                                  color: Color(0xFFE7A599))),
+                        ),
+                        // Image.asset("assets/register.png"),
                         const SizedBox(
                           height: 15,
                         ),
                         TextFormField(
                           decoration: textInputDecoration.copyWith(
                               labelText: "Email",
+                              labelStyle: TextStyle(
+                                fontSize: 15.0,
+                                fontFamily: 'UbuntuRegular',
+                                color: Color(0xFF7F8A8E),
+                              ),
+                              errorStyle: TextStyle(
+                                  color: Color(0xfffE7A599),
+                                  fontSize: 11,
+                                  fontFamily: 'UbuntuRegular'),
                               prefixIcon: Icon(
                                 Icons.email,
-                                color: Theme.of(context).primaryColor,
+                                color: Color(0xfffE7A599),
                               )),
                           onChanged: (val) {
                             setState(() {
@@ -69,15 +93,34 @@ class _ForgetpassPageState extends State<ForgetpassPage> {
 
                           // check tha validation
                           validator: (val) {
-                            return RegExp(
-                                        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                    .hasMatch(val!)
-                                ? null
-                                : "Please enter a valid email";
+                            if (val == null || val.isEmpty) {
+                              return '! Please enter your e-mail';
+                            } else if (!val.contains('@gmail.com')) {
+                              return '! Sorry, only letters(a-z), numbers(0-9), and periods(.) are allowed.';
+                            }
+                            return null;
+                            // return RegExp(
+                            //             r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                            //         .hasMatch(val!)
+                            //     ? null
+                            //     : "Please enter a valid email";
                           },
                         ),
-                        const SizedBox(height: 15),
 
+                        Container(
+                          margin: const EdgeInsets.only(
+                              top: 20.0, left: 0.0, right: 0.0),
+                          alignment: Alignment.topLeft,
+                          padding: const EdgeInsets.all(10),
+                          child: const Text(
+                            'We will send you an email with instructions on how to reset your password.',
+                            style: TextStyle(
+                                fontFamily: 'UbuntuRegular',
+                                fontSize: 15.0,
+                                // fontWeight: FontWeight.bold,
+                                color: Color(0xFFE7A599)),
+                          ),
+                        ),
                         const SizedBox(
                           height: 20,
                         ),
@@ -85,18 +128,26 @@ class _ForgetpassPageState extends State<ForgetpassPage> {
                           width: double.infinity,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                                primary: Theme.of(context).primaryColor,
+                                primary: Color(0xFFE8B2B2),
                                 elevation: 0,
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 70, vertical: 12),
                                 shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30))),
+                                    borderRadius: BorderRadius.circular(60))),
                             child: const Text(
-                              "Register",
+                              "Reset Password",
                               style:
-                                  TextStyle(color: Colors.white, fontSize: 16),
+                                  TextStyle(color: Colors.white,fontFamily: 'UbuntuMedium', fontSize: 16),
                             ),
                             onPressed: () {
-                              resetPassword();
-                            },
+                          // Validate returns true if the form is valid, otherwise false.
+                          if (formKey.currentState!.validate()) {
+                            setState(() {
+                              email;
+                            });
+                            resetPassword();
+                          }
+                        },
                           ),
                         ),
                         const SizedBox(
@@ -105,12 +156,12 @@ class _ForgetpassPageState extends State<ForgetpassPage> {
                         Text.rich(TextSpan(
                           text: "Already have an account? ",
                           style: const TextStyle(
-                              color: Colors.black, fontSize: 14),
+                              color: Color(0xffE7A599), fontSize: 14),
                           children: <TextSpan>[
                             TextSpan(
                                 text: "Login now",
                                 style: const TextStyle(
-                                    color: Colors.black,
+                                   color: Color(0xFFE7A599), 
                                     decoration: TextDecoration.underline),
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {
@@ -126,15 +177,16 @@ class _ForgetpassPageState extends State<ForgetpassPage> {
   }
 
   resetPassword() async {
-     try {
+    try {
       await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           backgroundColor: Color(0xffF9ECEA),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20.0),
-                    topRight: Radius.circular(20.0),
-                  )),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20.0),
+            topRight: Radius.circular(20.0),
+          )),
           content: Text(
             textAlign: TextAlign.center,
             'Sent Reset Password Successful!!',
@@ -151,10 +203,11 @@ class _ForgetpassPageState extends State<ForgetpassPage> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             backgroundColor: Color(0xffF9ECEA),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20.0),
-                    topRight: Radius.circular(20.0),
-                  )),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20.0),
+              topRight: Radius.circular(20.0),
+            )),
             content: Text(
               textAlign: TextAlign.center,
               'There was no user found for this email address',
