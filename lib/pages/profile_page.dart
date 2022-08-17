@@ -6,8 +6,13 @@ import 'package:flutter/material.dart';
 
 class ProfilePage extends StatefulWidget {
   String userName;
+  String userGpa;
   String email;
-  ProfilePage({Key? key, required this.email, required this.userName})
+  ProfilePage(
+      {Key? key,
+      required this.email,
+      required this.userName,
+      required this.userGpa})
       : super(key: key);
 
   @override
@@ -139,6 +144,16 @@ class _ProfilePageState extends State<ProfilePage> {
               children: [
                 const Text("Full Name", style: TextStyle(fontSize: 17)),
                 Text(widget.userName, style: const TextStyle(fontSize: 17)),
+              ],
+            ),
+            const Divider(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text("GPA", style: TextStyle(fontSize: 17)),
+                Text(widget.userGpa, style: const TextStyle(fontSize: 17)),
               ],
             ),
             const Divider(

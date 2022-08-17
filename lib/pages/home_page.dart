@@ -18,6 +18,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   String userName = "";
+  String userGpa = "";
   String email = "";
   AuthService authService = AuthService();
   Stream? groups;
@@ -39,6 +40,10 @@ class _HomePageState extends State<HomePage> {
     return res.substring(res.indexOf("_") + 1);
   }
 
+  String getGpa(String res) {
+    return res.substring(res.indexOf("_") + 1);
+  }
+
   gettingUserData() async {
     await HelperFunctions.getUserEmailFromSF().then((value) {
       setState(() {
@@ -48,6 +53,11 @@ class _HomePageState extends State<HomePage> {
     await HelperFunctions.getUserNameFromSF().then((val) {
       setState(() {
         userName = val!;
+      });
+    });
+    await HelperFunctions.getUserGpaFromSF().then((val) {
+      setState(() {
+        userGpa = val!;
       });
     });
     // getting the list of snapshots in our stream
@@ -123,6 +133,7 @@ class _HomePageState extends State<HomePage> {
                   context,
                   ProfilePage(
                     userName: userName,
+                    userGpa: userGpa,
                     email: email,
                   ));
             },
