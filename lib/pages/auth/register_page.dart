@@ -30,30 +30,50 @@ class _RegisterPageState extends State<RegisterPage> {
           : SingleChildScrollView(
               child: Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 80),
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                 child: Form(
                     key: formKey,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        const Text(
-                          "Groupie",
-                          style: TextStyle(
-                              fontSize: 40, fontWeight: FontWeight.bold),
-                        ),
-                        const SizedBox(height: 10),
-                        const Text(
-                            "Create your account now to chat and explore",
+                        Container(
+                          margin: const EdgeInsets.only(
+                              top: 120.0, left: 0.0, right: 0.0),
+                          alignment: Alignment.topLeft,
+                          padding: const EdgeInsets.all(10),
+                          child: const Text(
+                            "Create Account",
                             style: TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.w400)),
-                        Image.asset("assets/register.png"),
+                              fontFamily: 'UbuntuBold',
+                              fontSize: 40,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFFE7A599),
+                              decoration: TextDecoration.none,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        // const Text(
+                        //     "Create your account now to chat and explore",
+                        //     style: TextStyle(
+                        //         fontSize: 15, fontWeight: FontWeight.w400)),
+                        // Image.asset("assets/register.png"),
                         TextFormField(
                           decoration: textInputDecoration.copyWith(
-                              labelText: "Full Name",
+                              labelText: "Name",
+                              labelStyle: TextStyle(
+                                fontSize: 15.0,
+                                fontFamily: 'UbuntuRegular',
+                                color: Color(0xFF7F8A8E),
+                              ),
+                              errorStyle: TextStyle(
+                                  color: Color(0xfffE7A599),
+                                  fontSize: 11,
+                                  fontFamily: 'UbuntuRegular'),
                               prefixIcon: Icon(
                                 Icons.person,
-                                color: Theme.of(context).primaryColor,
+                                color: Color(0xfffE7A599),
                               )),
                           onChanged: (val) {
                             setState(() {
@@ -64,7 +84,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             if (val!.isNotEmpty) {
                               return null;
                             } else {
-                              return "Name cannot be empty";
+                              return "! Please enter your name";
                             }
                           },
                         ),
@@ -74,9 +94,18 @@ class _RegisterPageState extends State<RegisterPage> {
                         TextFormField(
                           decoration: textInputDecoration.copyWith(
                               labelText: "Email",
+                              labelStyle: TextStyle(
+                                fontSize: 15.0,
+                                fontFamily: 'UbuntuRegular',
+                                color: Color(0xFF7F8A8E),
+                              ),
+                              errorStyle: TextStyle(
+                                  color: Color(0xfffE7A599),
+                                  fontSize: 11,
+                                  fontFamily: 'UbuntuRegular'),
                               prefixIcon: Icon(
                                 Icons.email,
-                                color: Theme.of(context).primaryColor,
+                                color: Color(0xfffE7A599),
                               )),
                           onChanged: (val) {
                             setState(() {
@@ -86,11 +115,17 @@ class _RegisterPageState extends State<RegisterPage> {
 
                           // check tha validation
                           validator: (val) {
-                            return RegExp(
-                                        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                    .hasMatch(val!)
-                                ? null
-                                : "Please enter a valid email";
+                            if (val == null || val.isEmpty) {
+                              return '! Please enter your e-mail';
+                            } else if (!val.contains('@gmail.com')) {
+                              return '! Sorry, only letters(a-z), numbers(0-9), and periods(.) are allowed.';
+                            }
+                            return null;
+                            // return RegExp(
+                            //             r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                            //         .hasMatch(val!)
+                            //     ? null
+                            //     : "Please enter a valid email";
                           },
                         ),
                         const SizedBox(height: 15),
@@ -98,16 +133,26 @@ class _RegisterPageState extends State<RegisterPage> {
                           obscureText: true,
                           decoration: textInputDecoration.copyWith(
                               labelText: "Password",
+                              labelStyle: TextStyle(
+                                  fontSize: 15.0,
+                                  fontFamily: 'UbuntuRegular',
+                                  color: Color(0xFF7F8A8E)),
+                              errorStyle: TextStyle(
+                                  color: Color(0xfffE7A599),
+                                  fontSize: 11,
+                                  fontFamily: 'UbuntuRegular'),
                               prefixIcon: Icon(
                                 Icons.lock,
-                                color: Theme.of(context).primaryColor,
+                                color: Color(0xfffE7A599),
                               )),
                           validator: (val) {
+                            if (val == null || val.isEmpty) {
+                              return '! Please enter your password';
+                            }
                             if (val!.length < 6) {
                               return "Password must be at least 6 characters";
-                            } else {
-                              return null;
                             }
+                            return null;
                           },
                           onChanged: (val) {
                             setState(() {
@@ -122,14 +167,16 @@ class _RegisterPageState extends State<RegisterPage> {
                           width: double.infinity,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                                primary: Theme.of(context).primaryColor,
+                                primary: Color(0xFFE8B2B2),
                                 elevation: 0,
+                                padding:
+                          EdgeInsets.symmetric(horizontal: 70, vertical: 12),
                                 shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30))),
+                                    borderRadius: BorderRadius.circular(60))),
                             child: const Text(
-                              "Register",
+                              "SIGN UP",
                               style:
-                                  TextStyle(color: Colors.white, fontSize: 16),
+                                  TextStyle(color: Colors.white,  fontFamily: 'UbuntuMedium',fontSize: 16),
                             ),
                             onPressed: () {
                               register();
@@ -142,12 +189,12 @@ class _RegisterPageState extends State<RegisterPage> {
                         Text.rich(TextSpan(
                           text: "Already have an account? ",
                           style: const TextStyle(
-                              color: Colors.black, fontSize: 14),
+                              color:Color(0xFFE7A599), fontSize: 14),
                           children: <TextSpan>[
                             TextSpan(
                                 text: "Login now",
                                 style: const TextStyle(
-                                    color: Colors.black,
+                                    color: Color(0xFFE7A599), 
                                     decoration: TextDecoration.underline),
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {
@@ -177,7 +224,7 @@ class _RegisterPageState extends State<RegisterPage> {
           await HelperFunctions.saveUserNameSF(fullName);
           nextScreenReplace(context, const HomePage());
         } else {
-          showSnackbar(context, Colors.red, value);
+          showSnackbar(context,Color(0xffE7A599), value);
           setState(() {
             _isLoading = false;
           });

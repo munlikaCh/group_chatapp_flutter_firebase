@@ -56,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
                                 decoration: TextDecoration.none),
                           ),
                         ),
-                        const SizedBox(height: 10),
+                        const SizedBox(height: 20),
                         // const Text("Login now to see what they are talking!",
                         //     style: TextStyle(
                         //         fontSize: 15, fontWeight: FontWeight.w400)),
@@ -235,7 +235,7 @@ class _LoginPageState extends State<LoginPage> {
           await HelperFunctions.saveUserNameSF(snapshot.docs[0]['fullName']);
           nextScreenReplace(context, const HomePage());
         } else {
-          showSnackbar(context, Colors.red, value);
+          showSnackbar(context, Color(0xffE7A599), value);
           setState(() {
             _isLoading = false;
           });
