@@ -9,6 +9,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+import 'forgotpassw_page.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -27,66 +29,108 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: _isLoading
           ? Center(
-              child: CircularProgressIndicator(
-                  color: Theme.of(context).primaryColor),
+              child: CircularProgressIndicator(color: Color(0xfffE7A599)),
             )
           : SingleChildScrollView(
               child: Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 80),
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                 child: Form(
                     key: formKey,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        const Text(
-                          "Groupie",
-                          style: TextStyle(
-                              fontSize: 40, fontWeight: FontWeight.bold),
+                        Container(
+                          margin: const EdgeInsets.only(
+                              top: 120.0, left: 0.0, right: 0.0),
+                          alignment: Alignment.topCenter,
+                          padding: const EdgeInsets.all(10),
+                          child: const Text(
+                            "Welcome to Bearlance",
+                            style: TextStyle(
+                                fontSize: 40,
+                                fontFamily: 'UbuntuBold',
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFFE7A599),
+                                decoration: TextDecoration.none),
+                          ),
                         ),
                         const SizedBox(height: 10),
-                        const Text("Login now to see what they are talking!",
-                            style: TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.w400)),
-                        Image.asset("assets/login.png"),
-                        TextFormField(
-                          decoration: textInputDecoration.copyWith(
-                              labelText: "Email",
-                              prefixIcon: Icon(
-                                Icons.email,
-                                color: Theme.of(context).primaryColor,
-                              )),
-                          onChanged: (val) {
-                            setState(() {
-                              email = val;
-                            });
-                          },
+                        // const Text("Login now to see what they are talking!",
+                        //     style: TextStyle(
+                        //         fontSize: 15, fontWeight: FontWeight.w400)),
+                        // Image.asset("assets/login.png"),
+                        Container(
+                          child: TextFormField(
+                            decoration: textInputDecoration.copyWith(
+                                labelText: "Email",
+                                labelStyle: TextStyle(
+                                  fontFamily: 'UbuntuRegular',
+                                  fontSize: 15.0,
+                                  color: Color(0xFF7F8A8E),
+                                ),
+                                // border: OutlineInputBorder(
+                                //     borderRadius: BorderRadius.circular(16.0)),
+                                errorStyle: TextStyle(
+                                  color: Color(0xfffE7A599),
+                                  fontSize: 11,
+                                  fontFamily: 'UbuntuRegular',
+                                ),
+                                prefixIcon: Icon(
+                                  Icons.email,
+                                  color: Color(0xfffE7A599),
+                                )),
+                            onChanged: (val) {
+                              setState(() {
+                                email = val;
+                              });
+                            },
 
-                          // check tha validation
-                          validator: (val) {
-                            return RegExp(
-                                        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                    .hasMatch(val!)
-                                ? null
-                                : "Please enter a valid email";
-                          },
+                            // check tha validation
+                            validator: (val) {
+                              if (val == null || val.isEmpty) {
+                                return '! Please enter your e-mail';
+                              } else if (!val.contains('@gmail.com')) {
+                                return '! Sorry, only letters(a-z), numbers(0-9), and periods(.) are allowed.';
+                              }
+                              return null;
+                              // return RegExp(
+                              //             r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                              //         .hasMatch(val!)
+                              //     ? null
+                              //     : "! Please enter your e-mail";
+                            },
+                          ),
                         ),
                         const SizedBox(height: 15),
                         TextFormField(
                           obscureText: true,
                           decoration: textInputDecoration.copyWith(
                               labelText: "Password",
+                              labelStyle: TextStyle(
+                                  fontSize: 15.0,
+                                  fontFamily: 'UbuntuRegular',
+                                  color: Color(0xFF7F8A8E)),
+                              // border: OutlineInputBorder(
+                              //     borderRadius: BorderRadius.circular(16.0)),
+                              errorStyle: TextStyle(
+                                color: Color(0xfffE7A599),
+                                fontSize: 11,
+                                fontFamily: 'UbuntuRegular',
+                              ),
                               prefixIcon: Icon(
                                 Icons.lock,
-                                color: Theme.of(context).primaryColor,
+                                color: Color(0xfffE7A599),
                               )),
                           validator: (val) {
+                            if (val == null || val.isEmpty) {
+                              return '! Please enter your password';
+                            }
                             if (val!.length < 6) {
                               return "Password must be at least 6 characters";
-                            } else {
-                              return null;
                             }
+                            return null;
                           },
                           onChanged: (val) {
                             setState(() {
@@ -101,14 +145,19 @@ class _LoginPageState extends State<LoginPage> {
                           width: double.infinity,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                                primary: Theme.of(context).primaryColor,
+                                primary: Color(0xFFE8B2B2),
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 70, vertical: 12),
                                 elevation: 0,
                                 shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30))),
+                                    borderRadius: BorderRadius.circular(60))),
                             child: const Text(
-                              "Sign In",
+                              "LOG IN",
                               style:
-                                  TextStyle(color: Colors.white, fontSize: 16),
+                                  TextStyle(
+                                    color: Colors.white, 
+                                    fontSize: 16, 
+                                    fontFamily: 'UbuntuMedium'),
                             ),
                             onPressed: () {
                               login();
@@ -119,14 +168,41 @@ class _LoginPageState extends State<LoginPage> {
                           height: 10,
                         ),
                         Text.rich(TextSpan(
+                            text: "Forgot Your Password ?'",
+                            style: const TextStyle(
+                              fontFamily: 'UbuntuRegular',
+                                fontSize: 15.0, color: Color(0xFFE7A599)),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                nextScreen(context, const ForgetpassPage());
+                              })),
+                        
+                        Container(
+                          // margin: const EdgeInsets.only(top: 0.0, left: 0.0, right: 0.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "_________________________________________________",
+                                style: TextStyle(color: Color(0xFFE7A599)),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Text.rich(TextSpan(
                           text: "Don't have an account? ",
                           style: const TextStyle(
-                              color: Colors.black, fontSize: 14),
+                            fontFamily: 'UbuntuRegular',
+                              color: Color(0xFFE7A599), 
+                              fontSize: 14),
                           children: <TextSpan>[
                             TextSpan(
                                 text: "Register here",
                                 style: const TextStyle(
-                                    color: Colors.black,
+                                    color: Color(0xFFE7A599), 
                                     decoration: TextDecoration.underline),
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {
