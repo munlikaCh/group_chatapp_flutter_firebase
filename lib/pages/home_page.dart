@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   String getGpa(String res) {
-    return res.substring(res.indexOf("_") + 1);
+    return res.substring(res.indexOf("") + 1);
   }
 
   gettingUserData() async {
