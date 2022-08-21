@@ -168,7 +168,7 @@ class _LoginPageState extends State<LoginPage> {
                           height: 10,
                         ),
                         Text.rich(TextSpan(
-                            text: "Forgot Your Password ?'",
+                            text: "Forgot Your Password ?",
                             style: const TextStyle(
                               fontFamily: 'UbuntuRegular',
                                 fontSize: 15.0, color: Color(0xFFE7A599)),

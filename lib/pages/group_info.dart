@@ -52,7 +52,7 @@ class _GroupInfoState extends State<GroupInfo> {
         centerTitle: true,
         elevation: 0,
         backgroundColor: Theme.of(context).primaryColor,
-        title: const Text("Group Info"),
+        title: const Text("Plan Board Info"),
         actions: [
           IconButton(
               onPressed: () {
@@ -63,7 +63,7 @@ class _GroupInfoState extends State<GroupInfo> {
                       return AlertDialog(
                         title: const Text("Exit"),
                         content:
-                            const Text("Are you sure you exit the group? "),
+                            const Text("Are you sure you exit the plan board? "),
                         actions: [
                           IconButton(
                             onPressed: () {

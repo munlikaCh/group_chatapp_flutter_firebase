@@ -2,6 +2,7 @@ import 'package:chatapp_firebase/pages/auth/login_page.dart';
 import 'package:chatapp_firebase/pages/home_page.dart';
 import 'package:chatapp_firebase/service/auth_service.dart';
 import 'package:chatapp_firebase/widgets/widgets.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -21,6 +22,33 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   AuthService authService = AuthService();
+  User? user = FirebaseAuth.instance.currentUser;
+
+  verifyEmail() async {
+    if (user != null && !user!.emailVerified) {
+      await user!.sendEmailVerification();
+      print('Verification Email has benn sent');
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: Color(0xffF9ECEA),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20.0),
+            topRight: Radius.circular(20.0),
+          )),
+          content: Text(
+            textAlign: TextAlign.center,
+            'Verification Email has benn sent',
+            style: TextStyle(
+                fontSize: 15.0,
+                fontFamily: 'UbuntuRegular',
+                color: Color(0xffE7A599)),
+          ),
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -127,46 +155,137 @@ class _ProfilePageState extends State<ProfilePage> {
         ],
       )),
       body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 170),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Icon(
-              Icons.account_circle,
-              size: 200,
-              color: Colors.grey[700],
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text("Name", style: TextStyle(fontSize: 17)),
-                Text(widget.userName, style: const TextStyle(fontSize: 17)),
-              ],
-            ),
-            const Divider(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text("GPA", style: TextStyle(fontSize: 17)),
-                Text(widget.userGpa, style: const TextStyle(fontSize: 17)),
-              ],
-            ),
-            const Divider(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text("Email", style: TextStyle(fontSize: 17)),
-                Text(widget.email, style: const TextStyle(fontSize: 17)),
-              ],
-            ),
-          ],
+        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 50),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Icon(
+                Icons.account_circle,
+                size: 200,
+                color: Colors.grey[700],
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: 35,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text("Name", style: TextStyle(fontSize: 17)),
+                    Text(widget.userName, style: const TextStyle(fontSize: 17)),
+                  ],
+                ),
+              ),
+              const Divider(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text("GPA", style: TextStyle(fontSize: 17)),
+                  Text(widget.userGpa, style: const TextStyle(fontSize: 17)),
+                ],
+              ),
+              const Divider(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text("Email", style: TextStyle(fontSize: 17)),
+                  Text(widget.email, style: const TextStyle(fontSize: 17)),
+                ],
+              ),
+              const Divider(
+                height: 15,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                top: 15),
+                child: Row(
+                   mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    user!.emailVerified
+                        ? Text(
+                            'Verified :)',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 15.0,
+                                fontFamily: 'UbuntuRegular',
+                                color: Color(0xFF8BD06B)),
+                          )
+                        : TextButton(
+                            onPressed: () => {verifyEmail()},
+                            child: Text(
+                              'Verify Email',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontSize: 15.0,
+                                  fontFamily: 'UbuntuRegular',
+                                  color: Color(0xFFE7A599)),
+                            ))
+                  ],
+                ),
+              ),
+              Container(
+                alignment: Alignment.center,
+                margin: const EdgeInsets.only(top: 20.0, left: 0.0, right: 0.0),
+                child: ElevatedButton(
+                  onPressed: () async {
+              showDialog(
+                  barrierDismissible: false,
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      title: const Text("Logout"),
+                      content: const Text("Are you sure you want to logout?"),
+                      actions: [
+                        IconButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          icon: const Icon(
+                            Icons.cancel,
+                            color: Colors.red,
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () async {
+                            await authService.signOut();
+                            Navigator.of(context).pushAndRemoveUntil(
+                                MaterialPageRoute(
+                                    builder: (context) => const LoginPage()),
+                                (route) => false);
+                          },
+                          icon: const Icon(
+                            Icons.done,
+                            color: Colors.green,
+                          ),
+                        ),
+                      ],
+                    );
+                  });
+            },
+                  child: Text('Log out',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'UbuntuMedium',
+                          fontSize: 16)),
+                  style: ElevatedButton.styleFrom(
+                      primary: Color(0xFFE8B2B2),
+                      elevation: 0,
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 70, vertical: 12),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(60))),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

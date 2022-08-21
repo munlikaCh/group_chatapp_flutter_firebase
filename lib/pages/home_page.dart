@@ -87,7 +87,7 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
         backgroundColor: Theme.of(context).primaryColor,
         title: const Text(
-          "Groups",
+          "Plan Board",
           style: TextStyle(
               color: Colors.white, fontWeight: FontWeight.bold, fontSize: 27),
         ),
@@ -121,9 +121,9 @@ class _HomePageState extends State<HomePage> {
             selected: true,
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-            leading: const Icon(Icons.group),
+            leading: const Icon(Icons.border_color),
             title: const Text(
-              "Groups",
+              "Plan Board",
               style: TextStyle(color: Colors.black),
             ),
           ),
@@ -215,7 +215,7 @@ class _HomePageState extends State<HomePage> {
           return StatefulBuilder(builder: ((context, setState) {
             return AlertDialog(
               title: const Text(
-                "Create a group",
+                "Create new plan board",
                 textAlign: TextAlign.left,
               ),
               content: Column(
@@ -273,7 +273,7 @@ class _HomePageState extends State<HomePage> {
                       });
                       Navigator.of(context).pop();
                       showSnackbar(
-                          context, Colors.green, "Group created successfully.");
+                          context, Colors.green, "Plan board created successfully.");
                     }
                   },
                   style: ElevatedButton.styleFrom(
@@ -323,28 +323,33 @@ class _HomePageState extends State<HomePage> {
   noGroupWidget() {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 25),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          GestureDetector(
-            onTap: () {
-              popUpDialog(context);
-            },
-            child: Icon(
-              Icons.add_circle,
-              color: Colors.grey[700],
-              size: 75,
+      child: Container(
+         margin: const EdgeInsets.only(
+                              top: 15.0, left: 0.0, right: 0.0),
+        alignment: Alignment.topCenter,
+        child: Column(
+          // mainAxisAlignment: MainAxisAlignment.center,
+          // crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            GestureDetector(
+              onTap: () {
+                popUpDialog(context);
+              },
+              child: Icon(
+                Icons.add_circle,
+                color: Colors.grey[700],
+                size: 75,
+              ),
             ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          const Text(
-            "You've not joined any groups, tap on the add icon to create a group or also search from top search button.",
-            textAlign: TextAlign.center,
-          )
-        ],
+            const SizedBox(
+              height: 20,
+            ),
+            const Text(
+              "Create new plan board",
+              textAlign: TextAlign.center,
+            )
+          ],
+        ),
       ),
     );
   }
