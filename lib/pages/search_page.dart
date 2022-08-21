@@ -70,7 +70,7 @@ class _SearchPageState extends State<SearchPage> {
                     style: const TextStyle(color: Colors.white),
                     decoration: const InputDecoration(
                         border: InputBorder.none,
-                        hintText: "Search groups....",
+                        hintText: "Search plandboards....",
                         hintStyle:
                             TextStyle(color: Colors.white, fontSize: 16)),
                   ),
@@ -99,7 +99,7 @@ class _SearchPageState extends State<SearchPage> {
                   child: CircularProgressIndicator(
                       color: Theme.of(context).primaryColor),
                 )
-              : groupList(),
+              : planboardList(),
         ],
       ),
     );
@@ -122,7 +122,7 @@ class _SearchPageState extends State<SearchPage> {
     }
   }
 
-  groupList() {
+  planboardList() {
     return hasUserSearched
         ? ListView.builder(
             shrinkWrap: true,
@@ -130,8 +130,8 @@ class _SearchPageState extends State<SearchPage> {
             itemBuilder: (context, index) {
               return groupTile(
                 userName,
-                searchSnapshot!.docs[index]['groupId'],
-                searchSnapshot!.docs[index]['groupName'],
+                searchSnapshot!.docs[index]['plandboardId'],
+                searchSnapshot!.docs[index]['planboardName'],
                 searchSnapshot!.docs[index]['admin'],
               );
             },
@@ -139,10 +139,10 @@ class _SearchPageState extends State<SearchPage> {
         : Container();
   }
 
-  joinedOrNot(
-      String userName, String groupId, String groupname, String admin) async {
+  joinedOrNot(String userName, String plandboardId, String planboardName,
+      String admin) async {
     await DatabaseService(uid: user!.uid)
-        .isUserJoined(groupname, groupId, userName)
+        .isUserJoined(planboardName, plandboardId, userName)
         .then((value) {
       setState(() {
         isJoined = value;
@@ -150,27 +150,27 @@ class _SearchPageState extends State<SearchPage> {
     });
   }
 
-  Widget groupTile(
-      String userName, String groupId, String groupName, String admin) {
+  Widget groupTile(String userName, String plandboardId, String planboardName,
+      String admin) {
     // function to check whether user already exists in group
-    joinedOrNot(userName, groupId, groupName, admin);
+    joinedOrNot(userName, plandboardId, planboardName, admin);
     return ListTile(
       contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       leading: CircleAvatar(
         radius: 30,
         backgroundColor: Theme.of(context).primaryColor,
         child: Text(
-          groupName.substring(0, 1).toUpperCase(),
+          planboardName.substring(0, 1).toUpperCase(),
           style: const TextStyle(color: Colors.white),
         ),
       ),
-      title:
-          Text(groupName, style: const TextStyle(fontWeight: FontWeight.w600)),
+      title: Text(planboardName,
+          style: const TextStyle(fontWeight: FontWeight.w600)),
       subtitle: Text("Admin: ${getName(admin)}"),
       trailing: InkWell(
         onTap: () async {
           await DatabaseService(uid: user!.uid)
-              .toggleGroupJoin(groupId, userName, groupName);
+              .toggleGroupJoin(plandboardId, userName, planboardName);
           if (isJoined) {
             setState(() {
               isJoined = !isJoined;
@@ -180,14 +180,15 @@ class _SearchPageState extends State<SearchPage> {
               nextScreen(
                   context,
                   ChatPage(
-                      groupId: groupId,
-                      groupName: groupName,
+                      plandboardId: plandboardId,
+                      planboardName: planboardName,
                       userName: userName));
             });
           } else {
             setState(() {
               isJoined = !isJoined;
-              showSnackbar(context, Colors.red, "Left the group $groupName");
+              showSnackbar(
+                  context, Colors.red, "Left the group $planboardName");
             });
           }
         },

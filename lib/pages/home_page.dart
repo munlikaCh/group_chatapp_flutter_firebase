@@ -21,9 +21,9 @@ class _HomePageState extends State<HomePage> {
   String userGpa = "";
   String email = "";
   AuthService authService = AuthService();
-  Stream? groups;
+  Stream? plandboards;
   bool _isLoading = false;
-  String groupName = "";
+  String planboardName = "";
 
   @override
   void initState() {
@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage> {
         .getUserGroups()
         .then((snapshot) {
       setState(() {
-        groups = snapshot;
+        plandboards = snapshot;
       });
     });
   }
@@ -191,7 +191,7 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       )),
-      body: groupList(),
+      body: planboardList(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           popUpDialog(context);
@@ -214,9 +214,12 @@ class _HomePageState extends State<HomePage> {
         builder: (context) {
           return StatefulBuilder(builder: ((context, setState) {
             return AlertDialog(
-              title: const Text(
-                "Create new plan board",
-                textAlign: TextAlign.left,
+              title: Container(
+                alignment: Alignment.topCenter,
+                child: const Text(
+                  "Create new plan board",
+                  textAlign: TextAlign.center,
+                ),
               ),
               content: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -229,7 +232,7 @@ class _HomePageState extends State<HomePage> {
                       : TextField(
                           onChanged: (val) {
                             setState(() {
-                              groupName = val;
+                              planboardName = val;
                             });
                           },
                           style: const TextStyle(color: Colors.black),
@@ -237,15 +240,15 @@ class _HomePageState extends State<HomePage> {
                               enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                       color: Theme.of(context).primaryColor),
-                                  borderRadius: BorderRadius.circular(20)),
+                                  borderRadius: BorderRadius.circular(16)),
                               errorBorder: OutlineInputBorder(
                                   borderSide:
                                       const BorderSide(color: Colors.red),
-                                  borderRadius: BorderRadius.circular(20)),
+                                  borderRadius: BorderRadius.circular(16)),
                               focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                       color: Theme.of(context).primaryColor),
-                                  borderRadius: BorderRadius.circular(20))),
+                                  borderRadius: BorderRadius.circular(16))),
                         ),
                 ],
               ),
@@ -260,20 +263,38 @@ class _HomePageState extends State<HomePage> {
                 ),
                 ElevatedButton(
                   onPressed: () async {
-                    if (groupName != "") {
+                    if (planboardName != "") {
                       setState(() {
                         _isLoading = true;
                       });
                       DatabaseService(
                               uid: FirebaseAuth.instance.currentUser!.uid)
-                          .createGroup(userName,
-                              FirebaseAuth.instance.currentUser!.uid, groupName)
+                          .createPlanBoard(
+                              userName,
+                              FirebaseAuth.instance.currentUser!.uid,
+                              planboardName)
                           .whenComplete(() {
                         _isLoading = false;
                       });
                       Navigator.of(context).pop();
-                      showSnackbar(
-                          context, Colors.green, "Plan board created successfully.");
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          backgroundColor: Color(0xffF9ECEA),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20.0),
+                            topRight: Radius.circular(20.0),
+                          )),
+                          content: Text(
+                            textAlign: TextAlign.center,
+                            'Plan board created successfully.',
+                            style: TextStyle(
+                                fontSize: 15.0,
+                                fontFamily: 'UbuntuRegular',
+                                color: Color(0xffE7A599)),
+                          ),
+                        ),
+                      );
                     }
                   },
                   style: ElevatedButton.styleFrom(
@@ -286,29 +307,33 @@ class _HomePageState extends State<HomePage> {
         });
   }
 
-  groupList() {
+  planboardList() {
     return StreamBuilder(
-      stream: groups,
+      stream: plandboards,
       builder: (context, AsyncSnapshot snapshot) {
         // make some checks
         if (snapshot.hasData) {
-          if (snapshot.data['groups'] != null) {
-            if (snapshot.data['groups'].length != 0) {
+          if (snapshot.data['plandboards'] != null) {
+            if (snapshot.data['plandboards'].length != 0) {
               return ListView.builder(
-                itemCount: snapshot.data['groups'].length,
+                itemCount: snapshot.data['plandboards'].length,
                 itemBuilder: (context, index) {
-                  int reverseIndex = snapshot.data['groups'].length - index - 1;
+                  int reverseIndex =
+                      snapshot.data['plandboards'].length - index - 1;
                   return GroupTile(
-                      groupId: getId(snapshot.data['groups'][reverseIndex]),
-                      groupName: getName(snapshot.data['groups'][reverseIndex]),
-                      userName: snapshot.data['fullName']);
+                      plandboardId:
+                          getId(snapshot.data['plandboards'][reverseIndex]),
+                      planboardName:
+                          getName(snapshot.data['plandboards'][reverseIndex]),
+                      userName: snapshot.data['fullName']
+                      );
                 },
               );
             } else {
-              return noGroupWidget();
+              return noPlanboardWidget();
             }
           } else {
-            return noGroupWidget();
+            return noPlanboardWidget();
           }
         } else {
           return Center(
@@ -320,12 +345,11 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  noGroupWidget() {
+  noPlanboardWidget() {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 25),
       child: Container(
-         margin: const EdgeInsets.only(
-                              top: 15.0, left: 0.0, right: 0.0),
+        margin: const EdgeInsets.only(top: 15.0, left: 0.0, right: 0.0),
         alignment: Alignment.topCenter,
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.center,

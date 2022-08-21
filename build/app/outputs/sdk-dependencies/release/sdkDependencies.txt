@@ -3,7 +3,7 @@
 
 library {
   maven_library {
-    groupId: "io.flutter"
+    plandboardId: "io.flutter"
     artifactId: "flutter_embedding_release"
     version: "1.0.0-47aab7b574488042ba67961a60af0dc7de6dba58"
   }
@@ -16,7 +16,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "androidx.lifecycle"
+    plandboardId: "androidx.lifecycle"
     artifactId: "lifecycle-common"
     version: "2.2.0"
   }
@@ -28,7 +28,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "androidx.annotation"
+    plandboardId: "androidx.annotation"
     artifactId: "annotation"
     version: "1.2.0"
   }
@@ -40,7 +40,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "androidx.lifecycle"
+    plandboardId: "androidx.lifecycle"
     artifactId: "lifecycle-common-java8"
     version: "2.2.0"
   }
@@ -52,7 +52,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "androidx.lifecycle"
+    plandboardId: "androidx.lifecycle"
     artifactId: "lifecycle-runtime"
     version: "2.2.0"
   }
@@ -64,7 +64,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "androidx.arch.core"
+    plandboardId: "androidx.arch.core"
     artifactId: "core-common"
     version: "2.1.0"
   }
@@ -76,7 +76,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "androidx.fragment"
+    plandboardId: "androidx.fragment"
     artifactId: "fragment"
     version: "1.1.0"
   }
@@ -88,7 +88,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "androidx.core"
+    plandboardId: "androidx.core"
     artifactId: "core"
     version: "1.6.0"
   }
@@ -100,7 +100,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "androidx.annotation"
+    plandboardId: "androidx.annotation"
     artifactId: "annotation-experimental"
     version: "1.1.0"
   }
@@ -112,7 +112,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "androidx.versionedparcelable"
+    plandboardId: "androidx.versionedparcelable"
     artifactId: "versionedparcelable"
     version: "1.1.1"
   }
@@ -124,7 +124,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "androidx.collection"
+    plandboardId: "androidx.collection"
     artifactId: "collection"
     version: "1.1.0"
   }
@@ -136,7 +136,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "androidx.viewpager"
+    plandboardId: "androidx.viewpager"
     artifactId: "viewpager"
     version: "1.0.0"
   }
@@ -148,7 +148,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "androidx.customview"
+    plandboardId: "androidx.customview"
     artifactId: "customview"
     version: "1.0.0"
   }
@@ -160,7 +160,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "androidx.loader"
+    plandboardId: "androidx.loader"
     artifactId: "loader"
     version: "1.0.0"
   }
@@ -172,7 +172,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "androidx.lifecycle"
+    plandboardId: "androidx.lifecycle"
     artifactId: "lifecycle-livedata"
     version: "2.0.0"
   }
@@ -184,7 +184,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "androidx.arch.core"
+    plandboardId: "androidx.arch.core"
     artifactId: "core-runtime"
     version: "2.0.0"
   }
@@ -196,7 +196,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "androidx.lifecycle"
+    plandboardId: "androidx.lifecycle"
     artifactId: "lifecycle-livedata-core"
     version: "2.0.0"
   }
@@ -208,7 +208,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "androidx.lifecycle"
+    plandboardId: "androidx.lifecycle"
     artifactId: "lifecycle-viewmodel"
     version: "2.1.0"
   }
@@ -220,7 +220,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "androidx.activity"
+    plandboardId: "androidx.activity"
     artifactId: "activity"
     version: "1.0.0"
   }
@@ -232,7 +232,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "androidx.savedstate"
+    plandboardId: "androidx.savedstate"
     artifactId: "savedstate"
     version: "1.0.0"
   }
@@ -244,7 +244,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "androidx.tracing"
+    plandboardId: "androidx.tracing"
     artifactId: "tracing"
     version: "1.0.0"
   }
@@ -256,7 +256,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "androidx.window"
+    plandboardId: "androidx.window"
     artifactId: "window-java"
     version: "1.0.0-beta04"
   }
@@ -268,7 +268,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "org.jetbrains.kotlin"
+    plandboardId: "org.jetbrains.kotlin"
     artifactId: "kotlin-stdlib"
     version: "1.6.10"
   }
@@ -281,7 +281,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "org.jetbrains"
+    plandboardId: "org.jetbrains"
     artifactId: "annotations"
     version: "13.0"
   }
@@ -294,7 +294,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "org.jetbrains.kotlin"
+    plandboardId: "org.jetbrains.kotlin"
     artifactId: "kotlin-stdlib-common"
     version: "1.6.10"
   }
@@ -307,7 +307,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "org.jetbrains.kotlinx"
+    plandboardId: "org.jetbrains.kotlinx"
     artifactId: "kotlinx-coroutines-core"
     version: "1.5.2"
   }
@@ -317,7 +317,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "org.jetbrains.kotlinx"
+    plandboardId: "org.jetbrains.kotlinx"
     artifactId: "kotlinx-coroutines-core-jvm"
     version: "1.5.2"
   }
@@ -330,7 +330,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "org.jetbrains.kotlin"
+    plandboardId: "org.jetbrains.kotlin"
     artifactId: "kotlin-stdlib-jdk8"
     version: "1.5.30"
   }
@@ -343,7 +343,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "org.jetbrains.kotlin"
+    plandboardId: "org.jetbrains.kotlin"
     artifactId: "kotlin-stdlib-jdk7"
     version: "1.6.10"
   }
@@ -356,7 +356,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "androidx.window"
+    plandboardId: "androidx.window"
     artifactId: "window"
     version: "1.0.0-beta04"
   }
@@ -368,7 +368,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "org.jetbrains.kotlinx"
+    plandboardId: "org.jetbrains.kotlinx"
     artifactId: "kotlinx-coroutines-android"
     version: "1.5.2"
   }
@@ -381,7 +381,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "com.google.firebase"
+    plandboardId: "com.google.firebase"
     artifactId: "firebase-bom"
     version: "30.3.0"
   }
@@ -390,7 +390,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "com.google.firebase"
+    plandboardId: "com.google.firebase"
     artifactId: "firebase-common"
     version: "20.1.1"
   }
@@ -402,7 +402,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "com.google.android.gms"
+    plandboardId: "com.google.android.gms"
     artifactId: "play-services-basement"
     version: "18.0.0"
   }
@@ -414,7 +414,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "com.google.android.gms"
+    plandboardId: "com.google.android.gms"
     artifactId: "play-services-tasks"
     version: "18.0.1"
   }
@@ -426,7 +426,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "com.google.firebase"
+    plandboardId: "com.google.firebase"
     artifactId: "firebase-components"
     version: "17.0.0"
   }
@@ -438,7 +438,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "com.google.firebase"
+    plandboardId: "com.google.firebase"
     artifactId: "firebase-annotations"
     version: "16.1.0"
   }
@@ -450,7 +450,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "com.google.firebase"
+    plandboardId: "com.google.firebase"
     artifactId: "firebase-auth"
     version: "21.0.6"
   }
@@ -462,7 +462,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "androidx.browser"
+    plandboardId: "androidx.browser"
     artifactId: "browser"
     version: "1.4.0"
   }
@@ -474,7 +474,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "androidx.concurrent"
+    plandboardId: "androidx.concurrent"
     artifactId: "concurrent-futures"
     version: "1.0.0"
   }
@@ -486,7 +486,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "com.google.guava"
+    plandboardId: "com.google.guava"
     artifactId: "listenablefuture"
     version: "9999.0-empty-to-avoid-conflict-with-guava"
   }
@@ -499,7 +499,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "androidx.interpolator"
+    plandboardId: "androidx.interpolator"
     artifactId: "interpolator"
     version: "1.0.0"
   }
@@ -511,7 +511,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "androidx.localbroadcastmanager"
+    plandboardId: "androidx.localbroadcastmanager"
     artifactId: "localbroadcastmanager"
     version: "1.0.0"
   }
@@ -523,7 +523,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "com.google.android.gms"
+    plandboardId: "com.google.android.gms"
     artifactId: "play-services-auth-api-phone"
     version: "17.4.0"
   }
@@ -535,7 +535,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "com.google.android.gms"
+    plandboardId: "com.google.android.gms"
     artifactId: "play-services-base"
     version: "18.0.1"
   }
@@ -547,7 +547,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "com.google.android.gms"
+    plandboardId: "com.google.android.gms"
     artifactId: "play-services-safetynet"
     version: "17.0.0"
   }
@@ -559,7 +559,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "com.google.firebase"
+    plandboardId: "com.google.firebase"
     artifactId: "firebase-auth-interop"
     version: "20.0.0"
   }
@@ -571,7 +571,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "com.google.firebase"
+    plandboardId: "com.google.firebase"
     artifactId: "firebase-firestore"
     version: "24.2.1"
   }
@@ -583,7 +583,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "com.google.firebase"
+    plandboardId: "com.google.firebase"
     artifactId: "firebase-appcheck-interop"
     version: "16.0.0"
   }
@@ -595,7 +595,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "com.google.firebase"
+    plandboardId: "com.google.firebase"
     artifactId: "firebase-database-collection"
     version: "18.0.1"
   }
@@ -607,7 +607,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "com.google.firebase"
+    plandboardId: "com.google.firebase"
     artifactId: "protolite-well-known-types"
     version: "18.0.0"
   }
@@ -619,7 +619,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "com.google.protobuf"
+    plandboardId: "com.google.protobuf"
     artifactId: "protobuf-javalite"
     version: "3.19.2"
   }
@@ -632,7 +632,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "com.squareup.okhttp"
+    plandboardId: "com.squareup.okhttp"
     artifactId: "okhttp"
     version: "2.7.5"
   }
@@ -645,7 +645,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "com.squareup.okio"
+    plandboardId: "com.squareup.okio"
     artifactId: "okio"
     version: "1.17.5"
   }
@@ -658,7 +658,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "io.grpc"
+    plandboardId: "io.grpc"
     artifactId: "grpc-android"
     version: "1.44.1"
   }
@@ -671,7 +671,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "io.grpc"
+    plandboardId: "io.grpc"
     artifactId: "grpc-core"
     version: "1.44.1"
   }
@@ -684,7 +684,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "io.grpc"
+    plandboardId: "io.grpc"
     artifactId: "grpc-api"
     version: "1.44.1"
   }
@@ -697,7 +697,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "io.grpc"
+    plandboardId: "io.grpc"
     artifactId: "grpc-context"
     version: "1.44.1"
   }
@@ -710,7 +710,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "com.google.code.findbugs"
+    plandboardId: "com.google.code.findbugs"
     artifactId: "jsr305"
     version: "3.0.2"
   }
@@ -723,7 +723,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "com.google.guava"
+    plandboardId: "com.google.guava"
     artifactId: "guava"
     version: "30.1.1-android"
   }
@@ -736,7 +736,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "com.google.guava"
+    plandboardId: "com.google.guava"
     artifactId: "failureaccess"
     version: "1.0.1"
   }
@@ -749,7 +749,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "org.checkerframework"
+    plandboardId: "org.checkerframework"
     artifactId: "checker-compat-qual"
     version: "2.5.5"
   }
@@ -762,7 +762,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "com.google.errorprone"
+    plandboardId: "com.google.errorprone"
     artifactId: "error_prone_annotations"
     version: "2.9.0"
   }
@@ -775,7 +775,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "com.google.j2objc"
+    plandboardId: "com.google.j2objc"
     artifactId: "j2objc-annotations"
     version: "1.3"
   }
@@ -788,7 +788,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "com.google.code.gson"
+    plandboardId: "com.google.code.gson"
     artifactId: "gson"
     version: "2.8.9"
   }
@@ -801,7 +801,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "com.google.android"
+    plandboardId: "com.google.android"
     artifactId: "annotations"
     version: "4.1.1.4"
   }
@@ -814,7 +814,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "org.codehaus.mojo"
+    plandboardId: "org.codehaus.mojo"
     artifactId: "animal-sniffer-annotations"
     version: "1.19"
   }
@@ -827,7 +827,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "io.perfmark"
+    plandboardId: "io.perfmark"
     artifactId: "perfmark-api"
     version: "0.23.0"
   }
@@ -840,7 +840,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "io.grpc"
+    plandboardId: "io.grpc"
     artifactId: "grpc-okhttp"
     version: "1.44.1"
   }
@@ -853,7 +853,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "io.grpc"
+    plandboardId: "io.grpc"
     artifactId: "grpc-protobuf-lite"
     version: "1.44.1"
   }
@@ -866,7 +866,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "io.grpc"
+    plandboardId: "io.grpc"
     artifactId: "grpc-stub"
     version: "1.44.1"
   }
@@ -879,7 +879,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "io.flutter"
+    plandboardId: "io.flutter"
     artifactId: "armeabi_v7a_release"
     version: "1.0.0-47aab7b574488042ba67961a60af0dc7de6dba58"
   }
@@ -892,7 +892,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "io.flutter"
+    plandboardId: "io.flutter"
     artifactId: "arm64_v8a_release"
     version: "1.0.0-47aab7b574488042ba67961a60af0dc7de6dba58"
   }
@@ -905,7 +905,7 @@ library {
 }
 library {
   maven_library {
-    groupId: "io.flutter"
+    plandboardId: "io.flutter"
     artifactId: "x86_64_release"
     version: "1.0.0-47aab7b574488042ba67961a60af0dc7de6dba58"
   }

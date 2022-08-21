@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 
 class GroupTile extends StatefulWidget {
   final String userName;
-  final String groupId;
-  final String groupName;
+  final String plandboardId;
+  final String planboardName;
   const GroupTile(
       {Key? key,
-      required this.groupId,
-      required this.groupName,
+      required this.plandboardId,
+      required this.planboardName,
       required this.userName})
       : super(key: key);
 
@@ -25,8 +25,8 @@ class _GroupTileState extends State<GroupTile> {
         nextScreen(
             context,
             ChatPage(
-              groupId: widget.groupId,
-              groupName: widget.groupName,
+              plandboardId: widget.plandboardId,
+              planboardName: widget.planboardName,
               userName: widget.userName,
             ));
       },
@@ -36,16 +36,15 @@ class _GroupTileState extends State<GroupTile> {
           leading: CircleAvatar(
             radius: 30,
             backgroundColor: Theme.of(context).primaryColor,
-            child: 
-            Text(
-              widget.groupName.substring(0, 2).toUpperCase(),
+            child: Text(
+              widget.planboardName.substring(0, 2).toUpperCase(),
               textAlign: TextAlign.center,
               style: const TextStyle(
                   color: Colors.white, fontWeight: FontWeight.w500),
             ),
           ),
           title: Text(
-            widget.groupName,
+            widget.planboardName,
             style: const TextStyle(fontWeight: FontWeight.bold),
           ),
           // subtitle: Text(

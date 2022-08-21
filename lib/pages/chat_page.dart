@@ -6,13 +6,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class ChatPage extends StatefulWidget {
-  final String groupId;
-  final String groupName;
+  final String plandboardId;
+  final String planboardName;
   final String userName;
   const ChatPage(
       {Key? key,
-      required this.groupId,
-      required this.groupName,
+      required this.plandboardId,
+      required this.planboardName,
       required this.userName})
       : super(key: key);
 
@@ -32,12 +32,12 @@ class _ChatPageState extends State<ChatPage> {
   }
 
   getChatandAdmin() {
-    DatabaseService().getChats(widget.groupId).then((val) {
+    DatabaseService().getChats(widget.plandboardId).then((val) {
       setState(() {
         chats = val;
       });
     });
-    DatabaseService().getGroupAdmin(widget.groupId).then((val) {
+    DatabaseService().getGroupAdmin(widget.plandboardId).then((val) {
       setState(() {
         admin = val;
       });
@@ -50,7 +50,7 @@ class _ChatPageState extends State<ChatPage> {
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
-        title: Text(widget.groupName),
+        title: Text(widget.planboardName),
         backgroundColor: Theme.of(context).primaryColor,
         actions: [
           IconButton(
@@ -58,8 +58,8 @@ class _ChatPageState extends State<ChatPage> {
                 nextScreen(
                     context,
                     GroupInfo(
-                      groupId: widget.groupId,
-                      groupName: widget.groupName,
+                      plandboardId: widget.plandboardId,
+                      planboardName: widget.planboardName,
                       adminName: admin,
                     ));
               },
@@ -145,7 +145,7 @@ class _ChatPageState extends State<ChatPage> {
         "time": DateTime.now().millisecondsSinceEpoch,
       };
 
-      DatabaseService().sendMessage(widget.groupId, chatMessageMap);
+      DatabaseService().sendMessage(widget.plandboardId, chatMessageMap);
       setState(() {
         messageController.clear();
       });

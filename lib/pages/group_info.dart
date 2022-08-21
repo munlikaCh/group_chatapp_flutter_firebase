@@ -5,14 +5,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class GroupInfo extends StatefulWidget {
-  final String groupId;
-  final String groupName;
+  final String plandboardId;
+  final String planboardName;
   final String adminName;
   const GroupInfo(
       {Key? key,
       required this.adminName,
-      required this.groupName,
-      required this.groupId})
+      required this.planboardName,
+      required this.plandboardId})
       : super(key: key);
 
   @override
@@ -29,7 +29,7 @@ class _GroupInfoState extends State<GroupInfo> {
 
   getMembers() async {
     DatabaseService(uid: FirebaseAuth.instance.currentUser!.uid)
-        .getGroupMembers(widget.groupId)
+        .getGroupMembers(widget.plandboardId)
         .then((val) {
       setState(() {
         members = val;
@@ -62,8 +62,8 @@ class _GroupInfoState extends State<GroupInfo> {
                     builder: (context) {
                       return AlertDialog(
                         title: const Text("Exit"),
-                        content:
-                            const Text("Are you sure you exit the plan board? "),
+                        content: const Text(
+                            "Are you sure you exit the plan board? "),
                         actions: [
                           IconButton(
                             onPressed: () {
@@ -80,9 +80,9 @@ class _GroupInfoState extends State<GroupInfo> {
                                       uid: FirebaseAuth
                                           .instance.currentUser!.uid)
                                   .toggleGroupJoin(
-                                      widget.groupId,
+                                      widget.plandboardId,
                                       getName(widget.adminName),
-                                      widget.groupName)
+                                      widget.planboardName)
                                   .whenComplete(() {
                                 nextScreenReplace(context, const HomePage());
                               });
@@ -115,7 +115,7 @@ class _GroupInfoState extends State<GroupInfo> {
                     radius: 30,
                     backgroundColor: Theme.of(context).primaryColor,
                     child: Text(
-                      widget.groupName.substring(0, 1).toUpperCase(),
+                      widget.planboardName.substring(0, 1).toUpperCase(),
                       style: const TextStyle(
                           fontWeight: FontWeight.w500, color: Colors.white),
                     ),
@@ -127,7 +127,7 @@ class _GroupInfoState extends State<GroupInfo> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Group: ${widget.groupName}",
+                        "Group: ${widget.planboardName}",
                         style: const TextStyle(fontWeight: FontWeight.w500),
                       ),
                       const SizedBox(
