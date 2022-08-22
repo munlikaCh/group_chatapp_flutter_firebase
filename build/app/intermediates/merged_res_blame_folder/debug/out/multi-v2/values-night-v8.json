@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Intel\\FlutterDev\\group_chatapp_flutter_firebase\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
+            "outputFile": "C:\\Users\\icedbear\\group_chatapp_flutter_firebase\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Intel\\FlutterDev\\group_chatapp_flutter_firebase\\android\\app\\src\\main\\res\\values-night\\styles.xml",
+                    "source": "C:\\Users\\icedbear\\group_chatapp_flutter_firebase\\android\\app\\src\\main\\res\\values-night\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
