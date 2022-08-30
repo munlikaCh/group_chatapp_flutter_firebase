@@ -50,4 +50,6 @@ class AuthService {
       return null;
     }
   }
+
+  then(Future<Null> Function(dynamic value) param0) {}
 }

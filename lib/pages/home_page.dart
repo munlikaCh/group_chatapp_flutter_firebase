@@ -60,6 +60,12 @@ class _HomePageState extends State<HomePage> {
         userGpa = val!;
       });
     });
+
+    await HelperFunctions.updategetUserGpaFromSF().then((val) {
+      setState(() {
+        userGpa = val!;
+      });
+    });
     // getting the list of snapshots in our stream
     await DatabaseService(uid: FirebaseAuth.instance.currentUser!.uid)
         .getUserGroups()
@@ -68,6 +74,8 @@ class _HomePageState extends State<HomePage> {
         plandboards = snapshot;
       });
     });
+
+    
   }
 
   @override

@@ -34,6 +34,13 @@ class DatabaseService {
     return userCollection.doc(uid).snapshots();
   }
 
+  // // getting the chats
+  // updateUserGPA(String gpa) async {
+  //   return userCollection
+  //       .doc(gpa)
+  //       .snapshots();
+  // }
+
   // creating a group
   Future createPlanBoard(
       String userName, String id, String planboardName) async {

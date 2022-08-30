@@ -51,4 +51,15 @@ class HelperFunctions {
     return sf.getString(userGpaKey);
   }
 
+//update user
+  static Future<bool> updatesaveUserGpaSF(String userGpa) async {
+    SharedPreferences sf = await SharedPreferences.getInstance();
+    return await sf.setString(userGpaKey, userGpa);
+  }
+
+  static Future<String?> updategetUserGpaFromSF() async {
+    SharedPreferences sf = await SharedPreferences.getInstance();
+    return sf.getString(userGpaKey);
+  }
+
 }
