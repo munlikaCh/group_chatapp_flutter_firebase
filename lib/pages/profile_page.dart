@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../helper/helper_function.dart';
+import '../service/database_service.dart';
 
 class ProfilePage extends StatefulWidget {
   String userName;
@@ -33,17 +34,27 @@ class _ProfilePageState extends State<ProfilePage> {
   AuthService authService = AuthService();
 
   User? user = FirebaseAuth.instance.currentUser;
+
+  final CollectionReference userCollection =
+      FirebaseFirestore.instance.collection("users");
   // final _ctrupdategpa = TextEditingController();
 
   update() async {
-    
-    HelperFunctions.updatesaveUserGpaSF(gpa);
-
-    await HelperFunctions.updategetUserGpaFromSF().then((val) {
-      setState(() {
-        userGpa = val!;
+    final String? uid;
+    final userCollection =
+      FirebaseFirestore.instance
+      .collection("users");
+      
+      userCollection.doc().update({
+        "gpa":gpa,
       });
-    });
+    // HelperFunctions.updatesaveUserGpaSF(gpa);
+
+    // await HelperFunctions.updategetUserGpaFromSF().then((val) {
+    //   setState(() {
+    //     userGpa = val!;
+    //   });
+    // });
     
      Navigator.pop(context);
     ScaffoldMessenger.of(context).showSnackBar(
@@ -129,16 +140,16 @@ class _ProfilePageState extends State<ProfilePage> {
           child: ListView(
         padding: const EdgeInsets.symmetric(vertical: 50),
         children: <Widget>[
-          Icon(
-            Icons.account_circle,
-            size: 150,
-            color: Colors.grey[700],
-          ),
+          // Icon(
+          //   Icons.account_circle,
+          //   size: 150,
+          //   color: Colors.grey[700],
+          // ),
           const SizedBox(
             height: 15,
           ),
           Text(
-            widget.userName,
+            widget.userName, // เรียกมาshow name
             textAlign: TextAlign.center,
             style: const TextStyle(fontWeight: FontWeight.bold),
           ),
@@ -224,17 +235,17 @@ class _ProfilePageState extends State<ProfilePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Icon(
-                Icons.account_circle,
-                size: 200,
-                color: Colors.grey[700],
-              ),
+              // Icon(
+              //   Icons.account_circle,
+              //   size: 200,
+              //   color: Colors.grey[700],
+              // ),
               const SizedBox(
                 height: 15,
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                  top: 35,
+                  top: 160,
                   left: 40,
                 ),
                 child: Row(
@@ -255,7 +266,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ],
                 ),
               ),
-              const Divider(
+              const SizedBox(
                 height: 20,
               ),
               Container(
@@ -265,7 +276,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text("GPA :", style: TextStyle(fontSize: 17)),
+                    const Text("GPA goal :", style: TextStyle(fontSize: 17)),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -284,7 +295,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                         style: TextStyle(
                                             color: Color(0xFFE8B2B2),
                                             fontFamily: 'UbuntuMedium',
-                                            fontSize: 20)),
+                                            fontSize: 20)
+                                            ),
                                     content: SingleChildScrollView(
                                         child: Container(
                                       height: 150,
@@ -372,7 +384,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ],
                 ),
               ),
-              const Divider(
+              const SizedBox(
                 height: 20,
               ),
               Container(
@@ -397,11 +409,11 @@ class _ProfilePageState extends State<ProfilePage> {
                   ],
                 ),
               ),
-              const Divider(
+              const SizedBox(
                 height: 15,
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 15),
+                padding: const EdgeInsets.only(top: 50),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -429,7 +441,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               Container(
                 alignment: Alignment.center,
-                margin: const EdgeInsets.only(top: 20.0, left: 0.0, right: 0.0),
+                margin: const EdgeInsets.only(top: 50.0, left: 0.0, right: 0.0),
                 child: ElevatedButton(
                   onPressed: () async {
                     showDialog(

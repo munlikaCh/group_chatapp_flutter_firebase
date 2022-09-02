@@ -41,7 +41,7 @@ class DatabaseService {
   //       .snapshots();
   // }
 
-  // creating a group
+  // creating a plandboard
   Future createPlanBoard(
       String userName, String id, String planboardName) async {
     DocumentReference groupDocumentReference = await groupCollection.add({
@@ -65,6 +65,37 @@ class DatabaseService {
           FieldValue.arrayUnion(["${groupDocumentReference.id}_$planboardName"])
     });
   }
+
+// deletePlanBoard 
+  Future deletePlanBoard(
+      String plandboardId, String userName, String planboardName) async {
+    // doc reference
+    DocumentReference userDocumentReference = userCollection.doc(uid);
+    DocumentReference groupDocumentReference =
+        groupCollection.doc(plandboardId);
+
+    DocumentSnapshot documentSnapshot = await userDocumentReference.get();
+    List<dynamic> plandboards = await documentSnapshot['plandboards'];
+
+    if (plandboards.contains("${plandboardId}_$planboardName")) {
+      await userDocumentReference.update({
+        "plandboards":
+            FieldValue.arrayRemove(["${plandboardId}_$planboardName"])
+      });
+      await groupDocumentReference.update({
+        "members": FieldValue.arrayRemove(["${uid}_$userName"])
+      });
+    }
+  }
+
+  // deletePlanBoard() {
+  //   final docRef = userCollection.doc(uid);
+  //   final updates = <String, dynamic>{
+  //     "plandboards": FieldValue.arrayRemove(),
+  //   };
+  //   docRef.update(updates);
+  //   // userCollection.doc(uid).delete();
+  // }
 
   // getting the chats
   getChats(String plandboardId) async {
