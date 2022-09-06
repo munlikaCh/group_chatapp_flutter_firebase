@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 #Fri Sep 02 15:55:48 ICT 2022
 path.4=12/classes.dex
 path.3=1/classes.dex
+=======
+#Fri Sep 02 15:58:35 ICT 2022
+path.4=1/classes.dex
+path.3=12/classes.dex
+>>>>>>> origin/delete-planboard
 path.2=0/classes.dex
 path.1=0/classes.dex
 path.5=classes2.dex

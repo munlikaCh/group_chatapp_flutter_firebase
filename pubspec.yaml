@@ -34,6 +34,7 @@ dependencies:
   flutter:
     sdk: flutter
   shared_preferences: ^2.0.15
+<<<<<<< HEAD
   hive: ^2.0.4
   hive_flutter: ^1.1.0
   uuid: ^3.0.5
@@ -48,6 +49,9 @@ dependencies:
   timezone: ^0.8.0
   flutter_local_notifications: ^9.9.0
   flutter_native_timezone: ^2.0.0
+=======
+  # flutter_dialogflow: ^0.1.3
+>>>>>>> origin/delete-planboard
 
 dev_dependencies:
   # The "flutter_lints" package below contains a set of recommended lints to
@@ -71,6 +75,7 @@ flutter:
   assets:
     - assets/
     - assets/BGpj.png
+    # - assets/BGpj.json //json chatbot file
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see
@@ -81,24 +86,24 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-      - family: UbuntuBold
-        fonts:
-          - asset: assets/font/Ubuntu-Bold.ttf
-      - family: UbuntuLight
-        fonts:
-          - asset: assets/font/Ubuntu-Light.ttf
+    - family: UbuntuBold
+      fonts:
+        - asset: assets/font/Ubuntu-Bold.ttf
+    - family: UbuntuLight
+      fonts:
+        - asset: assets/font/Ubuntu-Light.ttf
 
-      - family: UbuntuItalic
-        fonts:
-          - asset: assets/font/Ubuntu-Italic.ttf
+    - family: UbuntuItalic
+      fonts:
+        - asset: assets/font/Ubuntu-Italic.ttf
 
-      - family: UbuntuMedium
-        fonts:
-          - asset: assets/font/Ubuntu-Medium.ttf
+    - family: UbuntuMedium
+      fonts:
+        - asset: assets/font/Ubuntu-Medium.ttf
 
-      - family: UbuntuRegular
-        fonts:
-          - asset: assets/font/Ubuntu-Regular.ttf
+    - family: UbuntuRegular
+      fonts:
+        - asset: assets/font/Ubuntu-Regular.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

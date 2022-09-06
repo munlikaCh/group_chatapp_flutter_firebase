@@ -22,6 +22,7 @@ class _ForgetpassPageState extends State<ForgetpassPage> {
   final formKey = GlobalKey<FormState>();
   String email = "";
   AuthService authService = AuthService();
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(

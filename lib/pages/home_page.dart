@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   String getGpa(String res) {
-    return res.substring(res.indexOf("") + 1);
+    return res.substring(res.indexOf("_") + 1);
   }
 
   gettingUserData() async {
@@ -60,6 +60,12 @@ class _HomePageState extends State<HomePage> {
         userGpa = val!;
       });
     });
+
+    // await HelperFunctions.updategetUserGpaFromSF().then((val) {
+    //   setState(() {
+    //     userGpa = val!;
+    //   });
+    // });
     // getting the list of snapshots in our stream
     await DatabaseService(uid: FirebaseAuth.instance.currentUser!.uid)
         .getUserGroups()
@@ -68,6 +74,8 @@ class _HomePageState extends State<HomePage> {
         plandboards = snapshot;
       });
     });
+
+    
   }
 
   @override
@@ -95,12 +103,13 @@ class _HomePageState extends State<HomePage> {
       drawer: Drawer(
           child: ListView(
         padding: const EdgeInsets.symmetric(vertical: 50),
+        //menu bar
         children: <Widget>[
-          Icon(
-            Icons.account_circle,
-            size: 150,
-            color: Colors.grey[700],
-          ),
+          // Icon(
+          //   Icons.account_circle,
+          //   size: 150,
+          //   color: Colors.grey[700],
+          // ),
           const SizedBox(
             height: 15,
           ),
@@ -261,6 +270,7 @@ class _HomePageState extends State<HomePage> {
                       primary: Theme.of(context).primaryColor),
                   child: const Text("CANCEL"),
                 ),
+                 Spacer(flex: 2),
                 ElevatedButton(
                   onPressed: () async {
                     if (planboardName != "") {

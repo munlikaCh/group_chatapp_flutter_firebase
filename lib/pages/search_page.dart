@@ -52,7 +52,7 @@ class _SearchPageState extends State<SearchPage> {
         elevation: 0,
         backgroundColor: Theme.of(context).primaryColor,
         title: const Text(
-          "Search",
+          "Search Plandboard",
           style: TextStyle(
               fontSize: 27, fontWeight: FontWeight.bold, color: Colors.white),
         ),
@@ -70,7 +70,7 @@ class _SearchPageState extends State<SearchPage> {
                     style: const TextStyle(color: Colors.white),
                     decoration: const InputDecoration(
                         border: InputBorder.none,
-                        hintText: "Search plandboards....",
+                        hintText: "Name of plandboard",
                         hintStyle:
                             TextStyle(color: Colors.white, fontSize: 16)),
                   ),
@@ -132,15 +132,17 @@ class _SearchPageState extends State<SearchPage> {
                 userName,
                 searchSnapshot!.docs[index]['plandboardId'],
                 searchSnapshot!.docs[index]['planboardName'],
-                searchSnapshot!.docs[index]['admin'],
+                // searchSnapshot!.docs[index]['admin'],
               );
             },
           )
         : Container();
   }
 
-  joinedOrNot(String userName, String plandboardId, String planboardName,
-      String admin) async {
+  joinedOrNot(
+      String userName, String plandboardId, String planboardName,
+      // String admin
+      ) async {
     await DatabaseService(uid: user!.uid)
         .isUserJoined(planboardName, plandboardId, userName)
         .then((value) {
@@ -150,10 +152,14 @@ class _SearchPageState extends State<SearchPage> {
     });
   }
 
-  Widget groupTile(String userName, String plandboardId, String planboardName,
-      String admin) {
+  Widget groupTile(
+      String userName, String plandboardId, String planboardName,
+      // String admin
+      ) {
     // function to check whether user already exists in group
-    joinedOrNot(userName, plandboardId, planboardName, admin);
+    joinedOrNot(userName, plandboardId, planboardName
+      // , admin
+      );
     return ListTile(
       contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       leading: CircleAvatar(
@@ -166,7 +172,7 @@ class _SearchPageState extends State<SearchPage> {
       ),
       title: Text(planboardName,
           style: const TextStyle(fontWeight: FontWeight.w600)),
-      subtitle: Text("Admin: ${getName(admin)}"),
+      // subtitle: Text("Admin: ${getName(admin)}"),
       trailing: InkWell(
         onTap: () async {
           await DatabaseService(uid: user!.uid)
