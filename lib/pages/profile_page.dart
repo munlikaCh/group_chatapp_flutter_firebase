@@ -39,15 +39,13 @@ class _ProfilePageState extends State<ProfilePage> {
       FirebaseFirestore.instance.collection("users");
   // final _ctrupdategpa = TextEditingController();
 
-  update() async {
+  updategpa() async {
     final String? uid;
-    final userCollection =
-      FirebaseFirestore.instance
-      .collection("users");
-      
-      userCollection.doc().update({
-        "gpa":gpa,
-      });
+    final userCollection = FirebaseFirestore.instance.collection("users");
+
+    userCollection.doc().update({
+      "gpa": gpa,
+    });
     // HelperFunctions.updatesaveUserGpaSF(gpa);
 
     // await HelperFunctions.updategetUserGpaFromSF().then((val) {
@@ -55,8 +53,8 @@ class _ProfilePageState extends State<ProfilePage> {
     //     userGpa = val!;
     //   });
     // });
-    
-     Navigator.pop(context);
+
+    Navigator.pop(context);
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         backgroundColor: Color(0xffF9ECEA),
@@ -161,7 +159,7 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           ListTile(
             onTap: () {
-              nextScreen(context, const HomePage());
+              nextScreen(context, const PlanboardPage());
             },
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
@@ -295,18 +293,18 @@ class _ProfilePageState extends State<ProfilePage> {
                                         style: TextStyle(
                                             color: Color(0xFFE8B2B2),
                                             fontFamily: 'UbuntuMedium',
-                                            fontSize: 20)
-                                            ),
+                                            fontSize: 20)),
                                     content: SingleChildScrollView(
                                         child: Container(
                                       height: 150,
                                       child: Column(
                                         children: [
                                           TextFormField(
-                                            controller: txtGpaEdit ,
+                                            controller: txtGpaEdit,
                                             decoration:
                                                 textInputDecoration.copyWith(
-                                                  hintText: "enter your new GPA",
+                                                    hintText:
+                                                        "enter your new GPA",
                                                     labelText: "GPA",
                                                     labelStyle: TextStyle(
                                                       fontSize: 15.0,
@@ -366,7 +364,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                                     fontSize: 16),
                                               ),
                                               onPressed: () {
-                                                update();
+                                                updategpa();
                                               },
                                             ),
                                           ),

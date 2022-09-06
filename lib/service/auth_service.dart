@@ -51,5 +51,5 @@ class AuthService {
     }
   }
 
-  then(Future<Null> Function(dynamic value) param0) {}
+  then(Future<Null> Function(dynamic value) param0) {} //+ฟังชั่นนี้มาตอน delete planboard
 }

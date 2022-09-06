@@ -255,7 +255,7 @@ class _RegisterPageState extends State<RegisterPage> {
         _isLoading = true;
       });
       await authService
-          .registerUserWithEmailandPassword(fullName,gpa, email, password)
+          .registerUserWithEmailandPassword(fullName, gpa, email, password)
           .then((value) async {
         if (value == true) {
           // saving the shared preference state
@@ -263,7 +263,7 @@ class _RegisterPageState extends State<RegisterPage> {
           await HelperFunctions.saveUserEmailSF(email);
           await HelperFunctions.saveUserNameSF(fullName);
           await HelperFunctions.saveUserGpaSF(gpa);
-          nextScreenReplace(context, const HomePage());
+          nextScreenReplace(context, const PlanboardPage());
         } else {
           showSnackbar(context, Color(0xffE7A599), value);
           setState(() {
