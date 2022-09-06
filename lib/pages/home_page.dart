@@ -9,14 +9,14 @@ import 'package:chatapp_firebase/widgets/widgets.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class PlanboardPage extends StatefulWidget {
+  const PlanboardPage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<PlanboardPage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<PlanboardPage> {
   String userName = "";
   String userGpa = "";
   String email = "";
@@ -74,8 +74,6 @@ class _HomePageState extends State<HomePage> {
         plandboards = snapshot;
       });
     });
-
-    
   }
 
   @override
@@ -270,7 +268,7 @@ class _HomePageState extends State<HomePage> {
                       primary: Theme.of(context).primaryColor),
                   child: const Text("CANCEL"),
                 ),
-                 Spacer(flex: 2),
+                Spacer(flex: 2),
                 ElevatedButton(
                   onPressed: () async {
                     if (planboardName != "") {
@@ -297,7 +295,7 @@ class _HomePageState extends State<HomePage> {
                           )),
                           content: Text(
                             textAlign: TextAlign.center,
-                            'Plan board created successfully.',
+                            'Planboard created successfully.',
                             style: TextStyle(
                                 fontSize: 15.0,
                                 fontFamily: 'UbuntuRegular',
@@ -335,8 +333,7 @@ class _HomePageState extends State<HomePage> {
                           getId(snapshot.data['plandboards'][reverseIndex]),
                       planboardName:
                           getName(snapshot.data['plandboards'][reverseIndex]),
-                      userName: snapshot.data['fullName']
-                      );
+                      userName: snapshot.data['fullName']);
                 },
               );
             } else {

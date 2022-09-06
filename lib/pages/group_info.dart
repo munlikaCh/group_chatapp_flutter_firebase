@@ -82,10 +82,10 @@ class _GroupInfoState extends State<GroupInfo> {
                                   .toggleGroupJoin(
                                       widget.plandboardId,
                                       getName(widget.adminName),
-                                      widget.planboardName
-                                      )
+                                      widget.planboardName)
                                   .whenComplete(() {
-                                nextScreenReplace(context, const HomePage());
+                                nextScreenReplace(
+                                    context, const PlanboardPage());
                               });
                             },
                             icon: const Icon(

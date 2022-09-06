@@ -66,6 +66,35 @@ class DatabaseService {
     });
   }
 
+
+// deletePlanBoard 
+  Future editPlanBoard(
+      String plandboardId, String userName, String planboardName) async {
+    // doc reference
+    DocumentReference userDocumentReference = userCollection.doc(uid);
+    DocumentReference groupDocumentReference =
+        groupCollection.doc(plandboardId);
+
+    DocumentSnapshot documentSnapshot = await userDocumentReference.get();
+    List<dynamic> plandboards = await documentSnapshot['plandboards'];
+
+    if (plandboards.contains("${plandboardId}_$planboardName")) {
+      await userDocumentReference.update({
+        "plandboards":
+            FieldValue.arrayUnion(["${plandboardId}_$planboardName"]),
+            "plandboardId": groupDocumentReference.id
+      });
+      await groupDocumentReference.update({
+       "plandboards":
+          FieldValue.arrayUnion(["${groupDocumentReference.id}_$planboardName"])
+      });
+      await userDocumentReference.update({
+       "plandboards":
+          FieldValue.arrayUnion(["${groupDocumentReference.id}_$planboardName"])
+      });
+    }
+  }
+
 // deletePlanBoard 
   Future deletePlanBoard(
       String plandboardId, String userName, String planboardName) async {
