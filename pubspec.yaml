@@ -37,7 +37,6 @@ dependencies:
   flutter_local_notifications: ^9.9.1
   http: ^0.13.5
   shared_preferences: ^2.0.15
-<<<<<<< HEAD
   hive: ^2.0.4
   hive_flutter: ^1.1.0
   uuid: ^3.0.5
@@ -50,11 +49,8 @@ dependencies:
   ftoast: ^2.0.0
   flutter_slider_drawer: ^2.1.1
   timezone: ^0.8.0
-  flutter_local_notifications: ^9.9.0
   flutter_native_timezone: ^2.0.0
-=======
-  # flutter_dialogflow: ^0.1.3
->>>>>>> origin/delete-planboard
+
 
 dev_dependencies:
   # The "flutter_lints" package below contains a set of recommended lints to

@@ -7,7 +7,7 @@ import 'package:flutter/src/widgets/framework.dart';
 
 import '../../service/auth_service.dart';
 import '../../widgets/widgets.dart';
-import '../home_page.dart';
+import '../planboard_page.dart';
 import 'login_page.dart';
 
 class ForgetpassPage extends StatefulWidget {

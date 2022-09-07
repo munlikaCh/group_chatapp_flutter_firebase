@@ -108,8 +108,8 @@ class _TaskViewState extends State<TaskView> {
         widget.taskControllerForTitle?.text = title;
         widget.taskControllerForSubtitle?.text = subtitle;
 
-        widget.task?.createdAtDate = date!;
-        widget.task?.createdAtTime = time!;
+        // widget.task?.createdAtDate = date!;
+        // widget.task?.createdAtTime = time!;
 
         widget.task?.save();
         Navigator.of(context).pop();
