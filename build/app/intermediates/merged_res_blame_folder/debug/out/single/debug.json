@@ -1,26 +1,26 @@
 [
     {
-        "merged": "/Users/mac/group_chatapp_flutter_firebase/build/app/intermediates/merged_res/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "/Users/mac/group_chatapp_flutter_firebase/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+        "merged": "C:\\Users\\Intel\\FlutterDev\\group_chatapp_flutter_firebase\\build\\app\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Intel\\FlutterDev\\group_chatapp_flutter_firebase\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "/Users/mac/group_chatapp_flutter_firebase/build/app/intermediates/merged_res/debug/mipmap-mdpi_ic_launcher.png.flat",
-        "source": "/Users/mac/group_chatapp_flutter_firebase/android/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+        "merged": "C:\\Users\\Intel\\FlutterDev\\group_chatapp_flutter_firebase\\build\\app\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Intel\\FlutterDev\\group_chatapp_flutter_firebase\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
     {
-        "merged": "/Users/mac/group_chatapp_flutter_firebase/build/app/intermediates/merged_res/debug/mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "/Users/mac/group_chatapp_flutter_firebase/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+        "merged": "C:\\Users\\Intel\\FlutterDev\\group_chatapp_flutter_firebase\\build\\app\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Intel\\FlutterDev\\group_chatapp_flutter_firebase\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "/Users/mac/group_chatapp_flutter_firebase/build/app/intermediates/merged_res/debug/drawable-v21_launch_background.xml.flat",
-        "source": "/Users/mac/group_chatapp_flutter_firebase/android/app/src/main/res/drawable-v21/launch_background.xml"
+        "merged": "C:\\Users\\Intel\\FlutterDev\\group_chatapp_flutter_firebase\\build\\app\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Intel\\FlutterDev\\group_chatapp_flutter_firebase\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
     {
-        "merged": "/Users/mac/group_chatapp_flutter_firebase/build/app/intermediates/merged_res/debug/mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "/Users/mac/group_chatapp_flutter_firebase/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
+        "merged": "C:\\Users\\Intel\\FlutterDev\\group_chatapp_flutter_firebase\\build\\app\\intermediates\\merged_res\\debug\\drawable-v21_launch_background.xml.flat",
+        "source": "C:\\Users\\Intel\\FlutterDev\\group_chatapp_flutter_firebase\\android\\app\\src\\main\\res\\drawable-v21\\launch_background.xml"
     },
     {
-        "merged": "/Users/mac/group_chatapp_flutter_firebase/build/app/intermediates/merged_res/debug/mipmap-hdpi_ic_launcher.png.flat",
-        "source": "/Users/mac/group_chatapp_flutter_firebase/android/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+        "merged": "C:\\Users\\Intel\\FlutterDev\\group_chatapp_flutter_firebase\\build\\app\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Intel\\FlutterDev\\group_chatapp_flutter_firebase\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     }
 ]

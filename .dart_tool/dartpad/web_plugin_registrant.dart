@@ -3,7 +3,6 @@
 // Generated file. Do not edit.
 //
 
-// @dart = 2.13
 // ignore_for_file: type=lint
 
 import 'package:cloud_firestore_web/cloud_firestore_web.dart';

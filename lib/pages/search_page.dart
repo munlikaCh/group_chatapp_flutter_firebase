@@ -54,7 +54,10 @@ class _SearchPageState extends State<SearchPage> {
         title: const Text(
           "Search Plandboard",
           style: TextStyle(
-              fontSize: 27, fontWeight: FontWeight.bold, color: Colors.white),
+              fontSize: 27,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              fontFamily: 'UbuntuRegular'),
         ),
       ),
       body: Column(
@@ -67,12 +70,15 @@ class _SearchPageState extends State<SearchPage> {
                 Expanded(
                   child: TextField(
                     controller: searchController,
-                    style: const TextStyle(color: Colors.white),
+                    style: const TextStyle(
+                        color: Colors.white, fontFamily: 'UbuntuRegular'),
                     decoration: const InputDecoration(
                         border: InputBorder.none,
                         hintText: "Name of plandboard",
-                        hintStyle:
-                            TextStyle(color: Colors.white, fontSize: 16)),
+                        hintStyle: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontFamily: 'UbuntuRegular')),
                   ),
                 ),
                 GestureDetector(
@@ -140,9 +146,11 @@ class _SearchPageState extends State<SearchPage> {
   }
 
   joinedOrNot(
-      String userName, String plandboardId, String planboardName,
-      // String admin
-      ) async {
+    String userName,
+    String plandboardId,
+    String planboardName,
+    // String admin
+  ) async {
     await DatabaseService(uid: user!.uid)
         .isUserJoined(planboardName, plandboardId, userName)
         .then((value) {
@@ -153,13 +161,15 @@ class _SearchPageState extends State<SearchPage> {
   }
 
   Widget groupTile(
-      String userName, String plandboardId, String planboardName,
-      // String admin
-      ) {
+    String userName,
+    String plandboardId,
+    String planboardName,
+    // String admin
+  ) {
     // function to check whether user already exists in group
     joinedOrNot(userName, plandboardId, planboardName
-      // , admin
-      );
+        // , admin
+        );
     return ListTile(
       contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       leading: CircleAvatar(

@@ -84,7 +84,9 @@ class _GroupTileState extends State<GroupTile> {
                                   alignment: Alignment.topCenter,
                                   child: Text(
                                     "Update Planboard : ${widget.planboardName} ",
-                                    // textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontFamily: 'UbuntuRegular',
+                                    ),
                                   ),
                                 ),
                                 content: Column(
@@ -131,9 +133,17 @@ class _GroupTileState extends State<GroupTile> {
                                       Navigator.of(context).pop();
                                     },
                                     style: ElevatedButton.styleFrom(
-                                        primary:
-                                            Theme.of(context).primaryColor),
-                                    child: const Text("Cancel"),
+                                      primary: Theme.of(context).primaryColor,
+                                      padding: const EdgeInsets.all(16.0),
+                                      textStyle: const TextStyle(fontSize: 15),
+                                    ),
+                                    child: const Text(
+                                      "Cancel",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontFamily: 'UbuntuRegular',
+                                      ),
+                                    ),
                                   ),
                                   Spacer(flex: 2),
                                   ElevatedButton(
@@ -173,280 +183,23 @@ class _GroupTileState extends State<GroupTile> {
                                       // }
                                     },
                                     style: ElevatedButton.styleFrom(
-                                        primary:
-                                            Theme.of(context).primaryColor),
-                                    child: const Text("Save"),
+                                      primary: Theme.of(context).primaryColor,
+                                      padding: const EdgeInsets.all(16.0),
+                                      textStyle: const TextStyle(fontSize: 15),
+                                    ),
+                                    child: const Text(
+                                      "Save",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontFamily: 'UbuntuRegular',
+                                      ),
+                                    ),
                                   )
                                 ],
                               );
                             }));
                           });
-                      // showDialog(
-                      //     context: context,
-                      //     builder: (context) => AlertDialog(
-                      //           title: Text('Update Planboard : ${widget.planboardName} ',
-                      //               style: TextStyle(
-                      //                   color: Color(0xFFE8B2B2),
-                      //                   fontFamily: 'UbuntuMedium',
-                      //                   fontSize: 20)),
-                      //           content: SingleChildScrollView(
-                      //                   child: Container(
-                      //                 height: 150,
-                      //                 child: Column(
-                      //                   children: [
-                      //                     TextFormField(
-                      //                       controller: txtGpaEdit,
-                      //                       decoration:
-                      //                           textInputDecoration.copyWith(
-                      //                             hintText: "enter your new GPA",
-                      //                               labelText: "GPA",
-                      //                               labelStyle: TextStyle(
-                      //                                 fontSize: 15.0,
-                      //                                 fontFamily:
-                      //                                     'UbuntuRegular',
-                      //                                 color: Color(0xFF7F8A8E),
-                      //                               ),
-                      //                               errorStyle: TextStyle(
-                      //                                   color:
-                      //                                       Color(0xfffE7A599),
-                      //                                   fontSize: 11,
-                      //                                   fontFamily:
-                      //                                       'UbuntuRegular'),
-                      //                               prefixIcon: Icon(
-                      //                                 Icons.onetwothree_rounded,
-                      //                                 color: Color(0xfffE7A599),
-                      //                               )),
-                      //                       // maxLength: 1,
-                      //                       keyboardType: TextInputType.number,
-                      //                       inputFormatters: [
-                      //                         FilteringTextInputFormatter.allow(
-                      //                             RegExp('[0-4]'))
-                      //                       ],
-                      //                       onChanged: (val) {
-                      //                         setState(() {
-                      //                           gpa = val;
-                      //                         });
-                      //                       },
-                      //                       validator: (val) {
-                      //                         if (val == null || val.isEmpty) {
-                      //                           return '! Please enter your GPA';
-                      //                         }
-                      //                         return null;
-                      //                       },
-                      //                     ),
-                      //                     SizedBox(
-                      //                       height: 20,
-                      //                     ),
-                      //                     SizedBox(
-                      //                       width: double.infinity,
-                      //                       child: ElevatedButton(
-                      //                         style: ElevatedButton.styleFrom(
-                      //                             primary: Color(0xFFE8B2B2),
-                      //                             elevation: 0,
-                      //                             padding: EdgeInsets.symmetric(
-                      //                                 horizontal: 70,
-                      //                                 vertical: 12),
-                      //                             shape: RoundedRectangleBorder(
-                      //                                 borderRadius:
-                      //                                     BorderRadius.circular(
-                      //                                         60))),
-                      //                         child: const Text(
-                      //                           "OK",
-                      //                           style: TextStyle(
-                      //                               color: Colors.white,
-                      //                               fontFamily: 'UbuntuMedium',
-                      //                               fontSize: 16),
-                      //                         ),
-                      //                         onPressed: () {
-                      //                           update();
-                      //                         },
-                      //                       ),
-                      //                     ),
-                      //                   ],
-                      //                 ),
-                      //               ))
-                      //           ,
-                      //           actions: [
-                      //             TextButton(
-                      //               child: Text(
-                      //                 "Cancel",
-                      //                 style: TextStyle(
-                      //                     color: Colors.white,
-                      //                     fontSize: 16,
-                      //                     fontFamily: "UbuntuMedium",
-                      //                     fontWeight: FontWeight.bold),
-                      //               ),
-                      //               onPressed: () {
-                      //                 Navigator.pop(context);
-                      //               },
-                      //               style: TextButton.styleFrom(
-                      //                   // foregroundColor: Colors.white,
-                      //                   padding: const EdgeInsets.all(16.0),
-                      //                   textStyle:
-                      //                       const TextStyle(fontSize: 20),
-                      //                   backgroundColor: Colors.red),
-                      //               // border: Border.all(
-                      //               //   color: AppColors.colorMain, //Add color of your choice
-                      //               // ),
-                      //             ),
-                      //             TextButton(
-                      //               child: Text(
-                      //                 "Confirm",
-                      //                 style: TextStyle(
-                      //                     color: Colors.white,
-                      //                     fontSize: 16,
-                      //                     fontFamily: "UbuntuMedium",
-                      //                     fontWeight: FontWeight.bold),
-                      //               ),
-                      //               onPressed: () async {
-                      //                 DatabaseService(
-                      //                         uid: FirebaseAuth
-                      //                             .instance.currentUser!.uid)
-                      //                     .editPlanBoard(
-                      //                         widget.plandboardId,
-                      //                         widget.userName,
-                      //                         widget.planboardName
-                      //                         )
-                      //                     .whenComplete(() {
-                      //                   // _isLoading = false;
-                      //                   Navigator.of(context).pop();
-                      //                 });
-
-                      //                 ScaffoldMessenger.of(context)
-                      //                     .showSnackBar(
-                      //                   SnackBar(
-                      //                     backgroundColor: Color(0xffF9ECEA),
-                      //                     shape: RoundedRectangleBorder(
-                      //                         borderRadius: BorderRadius.only(
-                      //                       topLeft: Radius.circular(20.0),
-                      //                       topRight: Radius.circular(20.0),
-                      //                     )),
-                      //                     content: Text(
-                      //                       textAlign: TextAlign.center,
-                      //                       'Delete successfully.',
-                      //                       style: TextStyle(
-                      //                           fontSize: 15.0,
-                      //                           fontFamily: 'UbuntuRegular',
-                      //                           color: Color(0xffE7A599)),
-                      //                     ),
-                      //                   ),
-                      //                 );
-                      //                 // });
-                      //               },
-                      //               style: TextButton.styleFrom(
-                      //                   padding: const EdgeInsets.all(16.0),
-                      //                   textStyle:
-                      //                       const TextStyle(fontSize: 20),
-                      //                   backgroundColor: Colors.green),
-                      //             )
-                      //           ],
-                      //           // ).show();
-                      //         ));
-                      // txtEtcEdit.text = itemEtc[index].title;
-                      // Alert(
-                      //   context: context,
-                      //   content: Container(
-                      //       child: Column(
-                      //           mainAxisSize: MainAxisSize.min,
-                      //           children: <Widget>[
-                      //         Column(children: [
-                      //           Container(
-                      //             child: Row(
-                      //               children: [
-                      //                 Checkbox(
-                      //                   value: checkBoxIdCard,
-                      //                   onChanged: (value) {
-                      //                     setState(() {
-                      //                       checkBoxIdCard = value!;
-                      //                     });
-                      //                   },
-                      //                 ), //Checkbox
-                      //                 Flexible(
-                      //                   child: Text(
-                      //                     'Edit etc.',
-                      //                     textAlign: TextAlign.left,
-                      //                     style: TextStyle(
-                      //                         fontSize: 17.0,
-                      //                         fontWeight: FontWeight.bold),
-                      //                   ),
-                      //                 ),
-                      //                 Icon(
-                      //                   Icons.add_circle_outline_outlined,
-                      //                   color: Colors.black,
-                      //                 ),
-                      //               ],
-                      //             ),
-                      //           ),
-                      //           TextField(
-                      //             controller: txtEtcEdit,
-                      //             decoration: InputDecoration(
-                      //               hintText: "Enter Edit Etc",
-                      //             ),
-                      //           ),
-                      //         ]),
-                      //       ])),
-                      //   buttons: [
-                      //     DialogButton(
-                      //       child: Text(
-                      //         "Cancel",
-                      //         style: TextStyle(
-                      //             color: Colors.white,
-                      //             fontSize: 16,
-                      //             fontFamily: "Itim",
-                      //             fontWeight: FontWeight.bold),
-                      //       ),
-                      //       onPressed: () {
-                      //         Alert(context: context).dismiss();
-                      //       },
-                      //       color: Colors.redAccent,
-                      //       radius: BorderRadius.circular(25.0),
-                      //       // border: Border.all(
-                      //       //   color: AppColors.colorMain, //Add color of your choice
-                      //       // ),
-                      //     ),
-                      //     DialogButton(
-                      //       child: Text(
-                      //         "Update",
-                      //         style: TextStyle(
-                      //             color: Colors.white,
-                      //             fontSize: 16,
-                      //             fontWeight: FontWeight.bold),
-                      //       ),
-                      //       onPressed: () async {
-                      //         DatabaseReference newRef = _db.child('Etc');
-                      //         var EtcIdEdit = itemEtc[index].etc_id;
-                      //         await newRef
-                      //             .child(AppUrl.UserID)
-                      //             .child('${widget._travelId}')
-                      //             .child(EtcIdEdit)
-                      //             .update({
-                      //           'etc_id': EtcIdEdit,
-                      //           'title': txtEtcEdit.text,
-                      //           'checked': listCheckBoxEct[index],
-                      //         }).then((onValue) {
-                      //           setState(() {
-                      //             Alert(context: context).dismiss();
-                      //             txtEtcEdit.text = "";
-                      //             EasyLoading.showSuccess(
-                      //               "Edit Success",
-                      //             );
-                      //             loadData();
-                      //           });
-                      //           return true;
-                      //         }).catchError((onError) {
-                      //           return false;
-                      //         });
-                      //       },
-                      //       radius: BorderRadius.circular(25.0),
-                      //       color: Colors.green,
-                      //     )
-                      //   ],
-                      // ).show();
                     },
-                    // child: const Text("Edit",
-                    //     style: TextStyle(
-                    //         fontSize: 14, fontWeight: FontWeight.w400)
-                    //         ),
                   ),
                   IconButton(
                     icon: const Icon(Icons.delete),
@@ -461,16 +214,21 @@ class _GroupTileState extends State<GroupTile> {
                                         fontFamily: 'UbuntuMedium',
                                         fontSize: 20)),
                                 content: Text(
-                                    'Do you really want to delete this ${widget.planboardName} ? '),
+                                  'Do you really want to delete this ${widget.planboardName} ? ',
+                                  style: TextStyle(
+                                    fontFamily: 'UbuntuRegular',
+                                  ),
+                                ),
                                 actions: [
                                   TextButton(
                                     child: Text(
                                       "Cancel",
                                       style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 16,
-                                          fontFamily: "UbuntuMedium",
-                                          fontWeight: FontWeight.bold),
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontFamily: "UbuntuRegular",
+                                        // fontWeight: FontWeight.bold
+                                      ),
                                     ),
                                     onPressed: () {
                                       Navigator.pop(context);
@@ -489,10 +247,11 @@ class _GroupTileState extends State<GroupTile> {
                                     child: Text(
                                       "Confirm",
                                       style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 16,
-                                          fontFamily: "UbuntuMedium",
-                                          fontWeight: FontWeight.bold),
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontFamily: "UbuntuRegular",
+                                        // fontWeight: FontWeight.bold
+                                      ),
                                     ),
                                     onPressed: () async {
                                       DatabaseService(

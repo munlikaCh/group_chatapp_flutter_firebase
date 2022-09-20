@@ -131,7 +131,10 @@ class _ProfilePageState extends State<ProfilePage> {
         title: const Text(
           "Profile",
           style: TextStyle(
-              color: Colors.white, fontSize: 27, fontWeight: FontWeight.bold),
+              color: Colors.white,
+              fontSize: 27,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'UbuntuRegular'),
         ),
       ),
       drawer: Drawer(
@@ -149,13 +152,18 @@ class _ProfilePageState extends State<ProfilePage> {
           Text(
             widget.userName, // เรียกมาshow name
             textAlign: TextAlign.center,
-            style: const TextStyle(fontWeight: FontWeight.bold),
+            style: const TextStyle(
+              // fontWeight: FontWeight.bold,
+              fontSize: 25.0,
+              fontFamily: 'UbuntuRegular',
+            ),
           ),
           const SizedBox(
             height: 30,
           ),
           const Divider(
             height: 2,
+            thickness: 1,
           ),
           ListTile(
             onTap: () {
@@ -166,7 +174,8 @@ class _ProfilePageState extends State<ProfilePage> {
             leading: const Icon(Icons.border_color),
             title: const Text(
               "Plan Board",
-              style: TextStyle(color: Colors.black),
+              style:
+                  TextStyle(color: Colors.black, fontFamily: 'UbuntuRegular'),
             ),
           ),
           ListTile(
@@ -178,7 +187,8 @@ class _ProfilePageState extends State<ProfilePage> {
             leading: const Icon(Icons.group),
             title: const Text(
               "Profile",
-              style: TextStyle(color: Colors.black),
+              style:
+                  TextStyle(color: Colors.black, fontFamily: 'UbuntuRegular'),
             ),
           ),
           ListTile(
@@ -222,7 +232,8 @@ class _ProfilePageState extends State<ProfilePage> {
             leading: const Icon(Icons.exit_to_app),
             title: const Text(
               "Logout",
-              style: TextStyle(color: Colors.black),
+              style:
+                  TextStyle(color: Colors.black, fontFamily: 'UbuntuRegular'),
             ),
           )
         ],
@@ -249,7 +260,9 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text("Name :", style: TextStyle(fontSize: 17)),
+                    const Text("Name :",
+                        style: TextStyle(
+                            fontSize: 17, fontFamily: 'UbuntuRegular')),
                     Container(
                       padding: const EdgeInsets.only(
                         right: 45,
@@ -257,7 +270,8 @@ class _ProfilePageState extends State<ProfilePage> {
                       child: Row(
                         children: [
                           Text(widget.userName,
-                              style: const TextStyle(fontSize: 17)),
+                              style: const TextStyle(
+                                  fontSize: 17, fontFamily: 'UbuntuRegular')),
                         ],
                       ),
                     ),
@@ -274,12 +288,15 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text("GPA goal :", style: TextStyle(fontSize: 17)),
+                    const Text("GPA goal :",
+                        style: TextStyle(
+                            fontSize: 17, fontFamily: 'UbuntuRegular')),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(widget.userGpa,
-                            style: const TextStyle(fontSize: 17)),
+                            style: const TextStyle(
+                                fontSize: 17, fontFamily: 'UbuntuRegular')),
                         IconButton(
                           onPressed: () async {
                             // txtGpaEdit.text = itemEtc[index].title;
@@ -392,7 +409,9 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text("Email : ", style: TextStyle(fontSize: 17)),
+                    const Text("Email : ",
+                        style: TextStyle(
+                            fontSize: 17, fontFamily: 'UbuntuRegular')),
                     Container(
                       padding: const EdgeInsets.only(
                         right: 45,
@@ -400,7 +419,8 @@ class _ProfilePageState extends State<ProfilePage> {
                       child: Row(
                         children: [
                           Text(widget.email,
-                              style: const TextStyle(fontSize: 17)),
+                              style: const TextStyle(
+                                  fontSize: 17, fontFamily: 'UbuntuRegular')),
                         ],
                       ),
                     ),
@@ -447,9 +467,17 @@ class _ProfilePageState extends State<ProfilePage> {
                         context: context,
                         builder: (context) {
                           return AlertDialog(
-                            title: const Text("Logout"),
+                            title: const Text(
+                              "Logout",
+                              style: TextStyle(
+                                fontFamily: 'UbuntuRegular',
+                              ),
+                            ),
                             content:
-                                const Text("Are you sure you want to logout?"),
+                                const Text("Are you sure you want to logout?",
+                                style: TextStyle(
+                                fontFamily: 'UbuntuRegular',
+                              ),),
                             actions: [
                               IconButton(
                                 onPressed: () {

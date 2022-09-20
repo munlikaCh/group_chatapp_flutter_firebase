@@ -95,7 +95,10 @@ class _HomePageState extends State<PlanboardPage> {
         title: const Text(
           "Plan Board",
           style: TextStyle(
-              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 27),
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 27,
+              fontFamily: 'UbuntuRegular'),
         ),
       ),
       drawer: Drawer(
@@ -114,13 +117,18 @@ class _HomePageState extends State<PlanboardPage> {
           Text(
             userName,
             textAlign: TextAlign.center,
-            style: const TextStyle(fontWeight: FontWeight.bold),
+            style: const TextStyle(
+              // fontWeight: FontWeight.bold,
+              fontSize: 25.0,
+              fontFamily: 'UbuntuRegular',
+            ),
           ),
           const SizedBox(
             height: 30,
           ),
           const Divider(
             height: 2,
+            thickness: 1,
           ),
           ListTile(
             onTap: () {},
@@ -131,7 +139,8 @@ class _HomePageState extends State<PlanboardPage> {
             leading: const Icon(Icons.border_color),
             title: const Text(
               "Plan Board",
-              style: TextStyle(color: Colors.black),
+              style:
+                  TextStyle(color: Colors.black, fontFamily: 'UbuntuRegular'),
             ),
           ),
           ListTile(
@@ -149,7 +158,8 @@ class _HomePageState extends State<PlanboardPage> {
             leading: const Icon(Icons.group),
             title: const Text(
               "Profile",
-              style: TextStyle(color: Colors.black),
+              style:
+                  TextStyle(color: Colors.black, fontFamily: 'UbuntuRegular'),
             ),
           ),
           ListTile(
@@ -159,8 +169,18 @@ class _HomePageState extends State<PlanboardPage> {
                   context: context,
                   builder: (context) {
                     return AlertDialog(
-                      title: const Text("Logout"),
-                      content: const Text("Are you sure you want to logout?"),
+                      title: const Text(
+                        "Logout",
+                        style: TextStyle(
+                          fontFamily: 'UbuntuRegular',
+                        ),
+                      ),
+                      content: const Text(
+                        "Are you sure you want to logout?",
+                        style: TextStyle(
+                          fontFamily: 'UbuntuRegular',
+                        ),
+                      ),
                       actions: [
                         IconButton(
                           onPressed: () {
@@ -193,7 +213,8 @@ class _HomePageState extends State<PlanboardPage> {
             leading: const Icon(Icons.exit_to_app),
             title: const Text(
               "Logout",
-              style: TextStyle(color: Colors.black),
+              style:
+                  TextStyle(color: Colors.black, fontFamily: 'UbuntuRegular'),
             ),
           )
         ],
@@ -378,6 +399,9 @@ class _HomePageState extends State<PlanboardPage> {
             const Text(
               "Create new plan board",
               textAlign: TextAlign.center,
+              style: TextStyle(
+                fontFamily: 'UbuntuRegular',
+              ),
             )
           ],
         ),
