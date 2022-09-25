@@ -145,20 +145,20 @@ class _SearchPageState extends State<SearchPage> {
         : Container();
   }
 
-  joinedOrNot(
-    String userName,
-    String plandboardId,
-    String planboardName,
-    // String admin
-  ) async {
-    await DatabaseService(uid: user!.uid)
-        .isUserJoined(planboardName, plandboardId, userName)
-        .then((value) {
-      setState(() {
-        isJoined = value;
-      });
-    });
-  }
+  // joinedOrNot(
+  //   String userName,
+  //   String plandboardId,
+  //   String planboardName,
+  //   // String admin
+  // ) async {
+  //   await DatabaseService(uid: user!.uid)
+  //       .isUserJoined(planboardName, plandboardId, userName)
+  //       .then((value) {
+  //     setState(() {
+  //       isJoined = value;
+  //     });
+  //   });
+  // }
 
   Widget groupTile(
     String userName,
@@ -166,10 +166,10 @@ class _SearchPageState extends State<SearchPage> {
     String planboardName,
     // String admin
   ) {
-    // function to check whether user already exists in group
-    joinedOrNot(userName, plandboardId, planboardName
-        // , admin
-        );
+    // // function to check whether user already exists in group
+    // joinedOrNot(userName, plandboardId, planboardName
+    //     // , admin
+    //     );
     return ListTile(
       contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       leading: CircleAvatar(
@@ -182,6 +182,16 @@ class _SearchPageState extends State<SearchPage> {
       ),
       title: Text(planboardName,
           style: const TextStyle(fontWeight: FontWeight.w600)),
+      onTap: () async {
+        nextScreenReplace(
+                  context,
+                  ChatPage(
+                    plandboardId: plandboardId,
+                    planboardName: planboardName,
+                    userName: userName,
+                  ));
+
+      },
       // subtitle: Text("Admin: ${getName(admin)}"),
       // trailing: InkWell(
       //   onTap: () async {
