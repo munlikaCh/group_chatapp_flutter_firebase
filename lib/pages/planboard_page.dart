@@ -8,6 +8,7 @@ import 'package:chatapp_firebase/widgets/group_tile.dart';
 import 'package:chatapp_firebase/widgets/widgets.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 class PlanboardPage extends StatefulWidget {
   const PlanboardPage({Key? key}) : super(key: key);
@@ -220,17 +221,71 @@ class _HomePageState extends State<PlanboardPage> {
         ],
       )),
       body: planboardList(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          popUpDialog(context);
-        },
-        elevation: 0,
-        backgroundColor: Theme.of(context).primaryColor,
-        child: const Icon(
-          Icons.add,
-          color: Colors.white,
-          size: 30,
-        ),
+      //  floatingActionButton: SpeedDial(
+      //     icon: Icons.settings,
+      //     backgroundColor: Colors.amber,
+      //     children: [
+      //       SpeedDialChild(
+      //         child: const Icon(Icons.face),
+      //         label: 'Social Network',
+      //         backgroundColor: Colors.amberAccent,
+      //         onTap: () {/* Do someting */},
+      //       ),
+      //       SpeedDialChild(
+      //         child: const Icon(Icons.email),
+      //         label: 'Email',
+      //         backgroundColor: Colors.amberAccent,
+      //         onTap: () {/* Do something */},
+      //       ),
+      //       SpeedDialChild(
+      //         child: const Icon(Icons.chat),
+      //         label: 'Message',
+      //         backgroundColor: Colors.amberAccent,
+      //         onTap: () {/* Do something */},
+      //       ),
+      //     ]),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Container(
+            alignment: Alignment.topRight,
+            child: Padding(
+              padding: const EdgeInsets.all(7.0),
+              child: FloatingActionButton.small(
+                onPressed: () {
+                  // popUpDialog(context);
+                },
+                elevation: 0,
+                backgroundColor: Theme.of(context).primaryColor,
+                child: const Icon(
+                  Icons.chat,
+                  color: Colors.white,
+                  // size: 30,
+                ),
+              ),
+            ),
+          ),
+          Container(
+            alignment: Alignment.topRight,
+            child: Padding(
+              padding: const EdgeInsets.all(7.0),
+              child: FloatingActionButton.extended(
+                onPressed: () {
+                  popUpDialog(context);
+                },
+                elevation: 0,
+                backgroundColor: Theme.of(context).primaryColor,
+                label: const Text('Add'),
+                icon: const Icon(
+                  Icons.add,
+                  color: Colors.white,
+                  // size: 30,
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -334,6 +389,21 @@ class _HomePageState extends State<PlanboardPage> {
             );
           }));
         });
+  }
+
+  Widget factBot(BuildContext context) {
+    return Container(
+        alignment: Alignment.bottomLeft,
+        child: FloatingActionButton(
+          materialTapTargetSize: MaterialTapTargetSize.padded,
+          onPressed: () {},
+          // onPressed: () => Navigator.pushNamed(context, FACTS_DIALOGFLOW),
+          child: Center(
+            child: Icon(Icons.chat),
+          ),
+          elevation: 4.0,
+          backgroundColor: Color.fromARGB(255, 151, 219, 255),
+        ));
   }
 
   planboardList() {
