@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "newpjbl",
+  "private_key_id": "df0ffb339b3a5913021f4a9fc395804ec5db9fcc",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDaylG/dDpwx2g+\nIvv+PJOX0SUptHGTMIloItWVensKwaK+hnGHyz7v16DkvXleNUQXUgDvf/DKbZc0\nu7jclguOy0GByO2F6sKEsyJmeG/KmRBjKGZjzgGE9HnkVTnqdUJNq9KuN8cuTLtH\n8WDOKlLHygSyoJez6HWV804Hdm+qw/YaUod6EP8iCWiXXdAEehX7rMYCMGh5gJco\n8j1p70GKRLiLOH20RWRFB3ATibqeQzSqLUsrWAoIF30p3H722X6B59KixkoYyOXm\nobSWIU8XNLGVgxyauCD4tW5JwCfPOxOgmlni5nUgbVC0ZCM3Xiiixh7WdBsgpyX4\nFd6IJA/LAgMBAAECggEAZp8aG9504NwvMWHwZ23bXoy7TSX1VbAg6ybXnn6uArwT\nTSE7VBHJae7uaQvURxNd5kBQ7wVIGHKxxwq76T85mZcNmUX43uTfqyVon76i1NjZ\nfmD/MZX5UXboS2iMO0QXvt22en/wHW/hMhvuJ5VjcZF4hZ5cuYZxzM0rzsVHGEVm\n2M6xJaP2/yTWH54o6mRKrQJnG/2VgQSRJ1C2VmfUqE/JFvemK7fgTqNR4EZ5+hlb\ndTTsMLUPq1szhmKmloX5t4/Mnr2+FsV/FeHZL4Iy3dXk8RfEBwYt3SIg/KRhlCyd\n9nFxlvybnJ5Kp0QZKcejTsfDaxFIsjIt9JPKrO9plQKBgQD1riGT5PK6KP5zvG2k\ntGqGhWjlorK6ioSLElC0hoKLf3PUrJYepxK+akTd4aWPIZqbSMW/fleNbL0V2H3Y\nbkijOYcub0okJodgeDuqR669Stm4Gb0HhYV875xPd0M+/mCJ0lHF0R3HsFIGI4mw\n4wNltHTPViroZmVOhUrdS7sQfwKBgQDj+wiXCdjt0JL0lb8TOCHwmQnKoA1xQBhQ\nuqlMokxEx5WJdVHoocpmvYTrHee7b8W2qU9Q5kakq2tE1KfgBlGepVoIFl35FC8G\nm8yrniO7rPGn33aBwdppAxbpl1wh7/yHMLamYRcaFW+QjvTic3YhfyAHFgOizWvK\n+Zr4gIuatQKBgHza4+GfZuPI1ZfH2QjtT33R6v9Y8e/vWXC7/BviiBGQ0jLxCtHF\nIrd2lk0U0eitsT7devHYqXIMIwQpI7uMQIoDQHoOwOUiV4ZlVB0zlNBKa98t5W0f\nJDncI9oWyCwJZtJj+n7HyZSkPOs1wFIO7LkRPpPoPKIi97Ux9FwGkqjNAoGBAIKm\nvLeCRzWS0IUmxEgJZTnzGm9q5gk/CDBLqPZoFHleP85006oT/mB+wAvWKZV7ar1R\nrkjYjyeTrXfWvxZdyKy4ai40U0qJTKHm65Z2nFfTtvHT2KBoLfj8ckcQHRa95+S6\nABK9lXW3TyZzJtgX/10W843cCd1lCB9ciHldgaP5AoGBAIrZJmWtpacMURm56qHf\nUi5NhAVVGNUf/uJ7ClFyHBd3zghaQvWFW1ICY7DmPaujfy/rEalfFH7hcguKkt6g\nwKjSZXp1Y+jmCs0O0gNXQs9sUrUt033ppYWgr4Vyjg5x+fzRqIX3kbkiknzH8pof\nCeVsZ/JfFRJHkIfBP2qfjPKr\n-----END PRIVATE KEY-----\n",
+  "client_email": "bearlance-bot@newpjbl.iam.gserviceaccount.com",
+  "client_id": "101825877932584453625",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/bearlance-bot%40newpjbl.iam.gserviceaccount.com"
+}

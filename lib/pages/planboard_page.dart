@@ -1,4 +1,5 @@
 import 'package:chatapp_firebase/helper/helper_function.dart';
+import 'package:chatapp_firebase/pages/Chatbot/chatbotpage.dart';
 import 'package:chatapp_firebase/pages/auth/login_page.dart';
 import 'package:chatapp_firebase/pages/profile_page.dart';
 import 'package:chatapp_firebase/pages/search_page.dart';
@@ -254,10 +255,10 @@ class _HomePageState extends State<PlanboardPage> {
               padding: const EdgeInsets.all(7.0),
               child: FloatingActionButton.small(
                 onPressed: () {
-                  // popUpDialog(context);
-                },
+                nextScreen(context, const Chatbotpage());
+              },
                 elevation: 0,
-                backgroundColor: Theme.of(context).primaryColor,
+                backgroundColor: Color(0xff8FCACA),
                 child: const Icon(
                   Icons.chat,
                   color: Colors.white,
@@ -391,20 +392,20 @@ class _HomePageState extends State<PlanboardPage> {
         });
   }
 
-  Widget factBot(BuildContext context) {
-    return Container(
-        alignment: Alignment.bottomLeft,
-        child: FloatingActionButton(
-          materialTapTargetSize: MaterialTapTargetSize.padded,
-          onPressed: () {},
-          // onPressed: () => Navigator.pushNamed(context, FACTS_DIALOGFLOW),
-          child: Center(
-            child: Icon(Icons.chat),
-          ),
-          elevation: 4.0,
-          backgroundColor: Color.fromARGB(255, 151, 219, 255),
-        ));
-  }
+  // Widget factBot(BuildContext context) {
+  //   return Container(
+  //       alignment: Alignment.bottomLeft,
+  //       child: FloatingActionButton(
+  //         materialTapTargetSize: MaterialTapTargetSize.padded,
+  //         onPressed: () {},
+  //         // onPressed: () => Navigator.pushNamed(context, FACTS_DIALOGFLOW),
+  //         child: Center(
+  //           child: Icon(Icons.chat),
+  //         ),
+  //         elevation: 4.0,
+  //         backgroundColor: Color.fromARGB(255, 151, 219, 255),
+  //       ));
+  // }
 
   planboardList() {
     return StreamBuilder(
