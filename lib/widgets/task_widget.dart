@@ -135,7 +135,7 @@ class _TaskWidgetState extends State<TaskWidget> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          DateFormat('hh:mm a')
+                          DateFormat('hh:mm  a')
                               .format(widget.task.createdAtTime),
                           style: TextStyle(
                               fontSize: 14,

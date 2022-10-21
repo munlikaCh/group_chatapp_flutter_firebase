@@ -5,7 +5,7 @@ class MyString {
   static const String addNewTask = "Add New ";
   static const String updateCurrentTask = "Update ";
   static const String taskStrnig = "Task";
-  static const String titleOfTitleTextField = "What are you planing today?";
+  static const String titleOfTitleTextField = "Please, type your task below";
   static const String addNote = 'Add Note';
   static const String timeString = "Time";
   static const String dateString = "Date";

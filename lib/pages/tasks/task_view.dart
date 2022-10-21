@@ -40,12 +40,12 @@ class _TaskViewState extends State<TaskView> {
   String showTime(DateTime? time) {
     if (widget.task?.createdAtTime == null) {
       if (time == null) {
-        return DateFormat('hh:mm a').format(DateTime.now()).toString();
+        return DateFormat('hh:mm  a').format(DateTime.now()).toString();
       } else {
-        return DateFormat('hh:mm a').format(time).toString();
+        return DateFormat('hh:mm  a').format(time).toString();
       }
     } else {
-      return DateFormat('hh:mm a')
+      return DateFormat('hh:mm  a')
           .format(widget.task!.createdAtTime)
           .toString();
     }
@@ -259,9 +259,8 @@ class _TaskViewState extends State<TaskView> {
         children: [
           /// Title of TextFiled
           Padding(
-            padding: const EdgeInsets.only(left: 30),
-            child: Text(MyString.titleOfTitleTextField,
-                style: textTheme.headline5),
+            padding: const EdgeInsets.only(left: 0),
+            child: Center(child: Text(MyString.titleOfTitleTextField)),
           ),
 
           /// Title TextField
@@ -271,8 +270,8 @@ class _TaskViewState extends State<TaskView> {
             child: ListTile(
               title: TextFormField(
                 controller: widget.taskControllerForTitle,
-                maxLines: 6,
-                cursorHeight: 60,
+                maxLines: 2,
+                cursorHeight: 20,
                 style: const TextStyle(color: Colors.black,),
                 decoration: InputDecoration(
                   enabledBorder: UnderlineInputBorder(
@@ -353,7 +352,7 @@ class _TaskViewState extends State<TaskView> {
                   Padding(
                     padding: const EdgeInsets.only(left: 10),
                     child:
-                        Text(MyString.timeString, style: textTheme.headline5),
+                        Text(MyString.timeString),
                   ),
                   Expanded(child: Container()),
                   Container(
@@ -407,7 +406,7 @@ class _TaskViewState extends State<TaskView> {
                   Padding(
                     padding: const EdgeInsets.only(left: 10),
                     child:
-                        Text(MyString.dateString, style: textTheme.headline5),
+                        Text(MyString.dateString),
                   ),
                   Expanded(child: Container()),
                   Container(
@@ -437,7 +436,7 @@ class _TaskViewState extends State<TaskView> {
   SizedBox _buildTopText(TextTheme textTheme) {
     return SizedBox(
       width: double.infinity,
-      height: 30,
+      height: 50,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -453,12 +452,12 @@ class _TaskViewState extends State<TaskView> {
                 text: isTaskAlreadyExistBool()
                     ? MyString.addNewTask
                     : MyString.updateCurrentTask,
-                style: textTheme.headline6,
+                style: textTheme.headline4,
                 children: const [
                   TextSpan(
                     text: MyString.taskStrnig,
                     style: TextStyle(
-                      fontWeight: FontWeight.w400,
+                      fontWeight: FontWeight.w300,
                     ),
                   )
                 ]),
